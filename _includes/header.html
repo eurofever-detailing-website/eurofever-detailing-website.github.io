@@ -1,0 +1,29 @@
+<header class="site-header site-header--custom" role="banner">
+  <div class="site-header__inner">
+    <a class="site-title site-title--stack" rel="author" href="{{ "/" | relative_url }}">
+      <span>EUROFEVER DETAILING</span>
+    </a>
+
+    <!-- Desktop nav -->
+    <nav class="site-nav site-nav--custom" aria-label="Primary navigation">
+      <div class="site-nav__links">
+        {%- for path in site.header_pages -%}
+          {%- assign my_page = site.html_pages | where: "path", path | first -%}
+          {%- if my_page.title -%}
+            <a class="page-link" href="{{ my_page.url | relative_url }}">{{ my_page.title | upcase }}</a>
+          {%- endif -%}
+        {%- endfor -%}
+      </div>
+    </nav>
+
+    <!-- Mobile hamburger -->
+    <button class="nav-toggle" type="button"
+      aria-label="Open menu"
+      aria-controls="mobile-menu"
+      aria-expanded="false">
+      <span class="nav-toggle__bar"></span>
+      <span class="nav-toggle__bar"></span>
+      <span class="nav-toggle__bar"></span>
+    </button>
+  </div>
+</header>

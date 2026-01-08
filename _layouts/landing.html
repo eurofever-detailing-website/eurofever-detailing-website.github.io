@@ -1,0 +1,32 @@
+---
+layout: null
+---
+
+<!doctype html>
+<html lang="{{ page.lang | default: site.lang | default: 'en' }}">
+    <!-- Site palette variables -->
+    <style>
+      :root{
+        --color-carbon: {{ site.palette.carbon }};
+        --color-anthracite: {{ site.palette.anthracite }};
+      }
+    </style>
+
+  <head>
+    {%- include head.html -%}
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,200;0,300;0,400;1,200;1,300&display=swap" rel="stylesheet">
+  </head>
+
+  <body class="landing">
+    {%- include header.html -%}
+    {%- include mobile-menu.html -%}
+
+    <main aria-label="Content">
+      {{ content }}
+    </main>
+
+    {%- include footer.html -%}
+      <script src="{{ '/assets/js/landing-header.js' | relative_url }}" defer></script>
+
+  </body>
+</html>

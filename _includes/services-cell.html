@@ -1,0 +1,14 @@
+{% assign v = include.val %}
+
+{% if v == null %}
+  <span class="cell cell--empty">—</span>
+{% elsif v == true %}
+  <span class="cell cell--yes" aria-label="Included">
+    <span class="iconCheck" aria-hidden="true"></span>
+    <span class="sr-only">Included</span>
+  </span>
+{% elsif v == "Optional add-on" %}
+  <span class="cell cell--addon">Optional add-on</span>
+{% else %}
+  <span class="cell cell--text">{{ v }}</span>
+{% endif %}

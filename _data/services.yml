@@ -1,0 +1,99 @@
+services:
+  - name: Pre-Wash
+    description: Non-contact foam to safely loosen surface contaminants
+    pkg_full_detail: true
+    pkg_exterior: true
+    pkg_interior: null
+
+  - name: Foam Cannon Wash
+    description: Thick, lubricating foam to lift dirt and minimize paint marring
+    pkg_full_detail: true
+    pkg_exterior: null
+    pkg_interior: null
+
+  - name: Contact Wash
+    description: Paint-safe hand wash using premium microfiber towels
+    pkg_full_detail: true
+    pkg_exterior: true
+    pkg_interior: null
+
+  - name: Pressure Rinse
+    description: >
+      Filtered, pressurized rinse to remove residue without water spotting.
+      Note: does not remove existing embedded water spots.
+    pkg_full_detail: true
+    pkg_exterior: true
+    pkg_interior: null
+
+  - name: Wheel & Tire Cleaning
+    description: Removal of brake dust, road grime, and embedded contaminants across wheel faces, barrels, and tires
+    pkg_full_detail: true
+    pkg_exterior: true
+    pkg_interior: null
+
+  - name: Tire Dressing
+    description: Matte, non-greasy finish
+    pkg_full_detail: true
+    pkg_exterior: "Optional add-on"
+    pkg_interior: null
+
+  - name: Exterior Glass
+    description: Streak-free finish
+    pkg_full_detail: true
+    pkg_exterior: true
+    pkg_interior: null
+
+  - name: Door Jamb Cleaning
+    description: Detailed cleaning of door jambs and hidden entry points
+    pkg_full_detail: true
+    pkg_exterior: true
+    pkg_interior: true
+
+  - name: Hand Dry Finish
+    description: Careful microfiber drying to prevent marring and water spots
+    pkg_full_detail: true
+    pkg_exterior: true
+    pkg_interior: null
+
+  - name: Interior Vacuum
+    description: Thorough two-step vacuuming of carpets, seats, and cargo areas
+    pkg_full_detail: true
+    pkg_exterior: null
+    pkg_interior: true
+
+  - name: Deep Carpet Cleaning
+    description: Shampoo and agitation for a refreshed, factory-like finish
+    pkg_full_detail: true
+    pkg_exterior: null
+    pkg_interior: "Optional add-on"
+
+  - name: Interior Surface Cleaning
+    description: Cleaning of all interior surfaces
+    pkg_full_detail: true
+    pkg_exterior: null
+    pkg_interior: true
+
+  - name: Interior Glass
+    description: Streak-free interior glass cleaning for clear visibility
+    pkg_full_detail: true
+    pkg_exterior: null
+    pkg_interior: true
+
+  - name: Leather Treatment
+    description: Gentle leather cleaning that removes oils, preserving a supple and matte finish
+    pkg_full_detail: true
+    pkg_exterior: null
+    pkg_interior: "Optional add-on"
+
+packages:
+  pkg_full_detail:
+    name: "&quotCars & Coffee&quot"
+    focus: Full Exterior + Interior Detail
+
+  pkg_exterior:
+    name: "&quotTrack-ready&quot"
+    focus: Exterior Only
+
+  pkg_interior:
+    name: "&quotDate Night&quot"
+    focus: Interior Only

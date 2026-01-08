@@ -1,0 +1,21 @@
+<section class="aboutpanel" {% unless include.no_id %}id="about"{% endunless %}>
+  <div class="aboutpanel__wrap">
+    <div class="aboutpanel__left">
+      <h2 class="aboutpanel__title">{{ site.data.about.title }}</h2>
+
+      <div class="aboutpanel__text">
+        <p>{{ site.data.about.body }}</p>
+        <p class="aboutpanel__sig">— {{ site.data.about.signature }}</p>
+      </div>
+    </div>
+
+    <div class="aboutpanel__right">
+      <figure class="aboutpanel__photo">
+        <img
+          src="{{ '/assets/about-photo.jpg' | relative_url }}"
+          alt="{{ site.data.about.photo_alt }}"
+        >
+      </figure>
+    </div>
+  </div>
+</section>

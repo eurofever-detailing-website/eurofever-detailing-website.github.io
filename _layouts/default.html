@@ -1,0 +1,32 @@
+---
+---
+
+<!doctype html>
+<html lang="{{ page.lang | default: site.lang | default: 'en' }}">
+  <head>
+    {%- include head.html -%}
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,200;0,300;0,400;1,200;1,300&display=swap" rel="stylesheet">
+
+    <!-- Site palette variables -->
+    <style>
+      :root{
+        --color-carbon: {{ site.palette.carbon }};
+        --color-anthracite: {{ site.palette.anthracite }};
+      }
+    </style>
+  </head>
+
+  <body class="{{ page.body_class | default: layout.body_class | default: '' }}">
+    {%- include header.html -%}
+    {%- include mobile-menu.html -%}
+
+    <main aria-label="Content">
+      {{ content }}
+    </main>
+
+    {%- include footer.html -%}
+    <script src="{{ '/assets/js/landing-header.js' | relative_url }}" defer></script>
+  </body>
+</html>
