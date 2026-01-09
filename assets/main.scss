@@ -529,18 +529,18 @@ html.menu-open body {
    ========================================================= */
 
 /* Base table container stays clean */
-.pricingTable{
+.serviceComparisons{
   padding: clamp(18px, 3vw, 44px) 16px;
   font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto;
 }
 
-.pricingTable__wrap{
+.serviceComparisons__wrap{
   max-width: 1120px;
   margin: 0 auto;
 }
 
 /* Scroll wrapper*/
-.pricingTable__scroll{
+.serviceComparisons__scroll{
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
   border-right: 0;               
@@ -551,7 +551,7 @@ html.menu-open body {
 }
 
 /* Table layout */
-.pricingTable__table{
+.serviceComparisons__table{
   background: transparent;
   width: 60%;
   border-collapse: collapse;
@@ -563,15 +563,16 @@ html.menu-open body {
   min-width: 980px;
 }
 
-.pricingTable__table tr:nth-child(even),
-.pricingTable__table tr:nth-child(odd){
+/* Remove zebra striping from all rows */
+.serviceComparisons__table tr:nth-child(even),
+.serviceComparisons__table tr:nth-child(odd){
   background-color: transparent !important;
 }
 
 /* Cells — horizontal rules ONLY */
-.pricingTable__th,
-.pricingTable__cell,
-.pricingTable__feature{
+.serviceComparisons__th,
+.serviceComparisons__cell,
+.serviceComparisons__feature{
   padding: 14px 14px;
   border-bottom: 1px solid rgba(0,0,0,.12);
   border-right: 0;               
@@ -583,7 +584,7 @@ html.menu-open body {
 }
 
 /* Header row */
-.pricingTable__th{
+.serviceComparisons__th{
   position: sticky;
   top: 0;
   z-index: 2;
@@ -594,17 +595,17 @@ html.menu-open body {
 }
 
 /* First column (service names) */
-.pricingTable__th--feature,
-.pricingTable__feature{
+.serviceComparisons__th--feature,
+.serviceComparisons__feature{
   width: 36%;
   min-width: 280px;
   background: transparent;
 }
 
 /* Highlight ONLY Full Exterior + Interior column */
-.pricingTable__table thead th:nth-child(2),
-.pricingTable__table tbody td:nth-child(2),
-.pricingTable__table tfoot td:nth-child(2){
+.serviceComparisons__table thead th:nth-child(2),
+.serviceComparisons__table tbody td:nth-child(2),
+.serviceComparisons__table tfoot td:nth-child(2){
   background: rgba(0,0,0,.03);
   border-right: 0;               
   border-left: 0;
@@ -620,14 +621,14 @@ html.menu-open body {
 .plan__sub{
   margin-top: 6px;
   color: rgba(0,0,0,.55);
-  font-size: 12.5px;
+  font-size: 14px;
   font-weight: 400;
 }
 
 /* Feature text */
 .feature__name{
   font-weight: 400;
-  font-size: 14px;
+  font-size: 16px;
   margin-bottom: 6px;
 }
 
@@ -635,21 +636,21 @@ html.menu-open body {
   color: rgba(0,0,0,.55);
   font-weight: 300;
   font-style: italic;
-  font-size: 12.5px;
+  font-size: 14px;
   line-height: 1.45;
   max-width: 52ch;
 }
 
 
 // /* Section headers (if used) */
-// .pricingTable__section td{
+// .serviceComparisons__section td{
 //   padding: 18px 14px 10px;
 //   border-bottom: 1px solid rgba(0,0,0,.12);
 //   background: transparent;
 // }
 
-// .pricingTable__sectionTitle{
-//   font-size: 11px;
+// .serviceComparisons__sectionTitle{
+//   font-size: 14px;
 //   letter-spacing: .12em;
 //   color: rgba(0,0,0,.55);
 //   font-weight: 700;
@@ -666,14 +667,14 @@ html.menu-open body {
   border-radius: 999px;
   border: 1px solid rgba(0,0,0,.2);
   background: transparent;  
-  font-size: 12.5px;
+  font-size: 14px;
   color: var(--color-carbon);
 }
 
 .cell--text{
   color: var(--color-carbon);
   font-weight: 400;
-  font-size: 12.5px;
+  font-size: 14px;
 }
 
 /* Check icon */
@@ -714,18 +715,18 @@ html.menu-open body {
 
 
 /* Footer CTA buttons */
-.pricingTable__ctaRow .pricingTable__feature,
-.pricingTable__ctaRow .pricingTable__cell{
+.serviceComparisons__ctaRow .serviceComparisons__feature,
+.serviceComparisons__ctaRow .serviceComparisons__cell{
   border-bottom: 0;           /* optional: no rule after buttons */
   padding-top: 18px;
   padding-bottom: 18px;
 }
 
-.pricingTable__ctaCell{
+.serviceComparisons__ctaCell{
   text-align: left;           /* match your table alignment */
 }
 
-.pricingTable__btn{
+.serviceComparisons__btn{
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -735,17 +736,90 @@ html.menu-open body {
   text-decoration: none;
   color: inherit;
   font-weight: 600;
-  font-size: 13px;
+  font-size: 14px;
   letter-spacing: .01em;
   background: transparent;    /* stays consistent with your spec look */
 }
 
 /* Optional: subtle hover */
-.pricingTable__btn:hover{
+.serviceComparisons__btn:hover{
   border-color: rgba(0,0,0,.28);
 }
 
 /* Optional: if you’re still highlighting Full Detail column, make its button slightly emphasized */
-.pricingTable__table tfoot td:nth-child(2) .pricingTable__btn{
+.serviceComparisons__table tfoot td:nth-child(2) .serviceComparisons__btn{
   border-color: rgba(0,0,0,.30);
+}
+
+
+
+/* =========================================================
+   ADD-ONS — ROUNDED TILE CARDS
+   ========================================================= */
+
+.addons{
+  padding: clamp(18px, 3vw, 44px) 16px;
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto;
+}
+
+.addons__wrap{
+  max-width: 1120px;
+  margin: 0 auto;
+}
+
+.addons__grid{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 16px;
+  margin-top: 18px;
+}
+
+.addons__card{
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 18px 20px;
+  border-radius: 14px;
+  border: 1px solid rgba(0,0,0,.12);
+  background: transparent;
+}
+
+.addons__cardText{
+  max-width: 80%;
+}
+
+.addons__name{
+  font-weight: 400;
+  font-size: 16px;
+  margin-bottom: 6px;
+  color: #3f3f3f;
+}
+
+.addons__desc{
+  font-style: italic;
+  color: rgba(0,0,0,.55);
+  font-size: 14px;
+  line-height: 1.45;
+}
+
+.addons__priceWrap{
+  display: flex;
+  align-items: center;
+}
+
+.addons__price{
+  font-weight: 400;
+  font-size: 14px;
+  white-space: nowrap;
+  color: #3f3f3f;
+}
+
+.addon-note{
+  display: inline-block;
+  margin-top: 6px;
+  font-weight: 500;
+  font-style: italic;
+  color: rgba(0,0,0,.55);
+  font-size: 14px;
+  line-height: 1.45;
 }

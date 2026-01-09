@@ -1,0 +1,41 @@
+add_ons:
+  - name: Steam Disinfection Clean
+    description: Steam sanitization to eliminate bacteria and odors
+    price: 50
+
+  - name: Interior Surface Sealant
+    description: Anti-static UV protectant for non-touch interior plastics
+    price: 25
+
+  - name: Deep Carpet Cleaning
+    description: Shampoo and agitation for a refreshed, factory-like finish
+    price: XXX
+
+  - name: Leather Treatment
+    description: Gentle leather cleaning that removes oils, preserving a supple and matte finish
+    price: XXX
+
+  - name: Engine Bay Clean
+    description: Light engine bay cleaning to remove surface grime
+    price: 50
+
+  - name: Undercarriage Spray
+    description: Rinse treatment to remove undercarriage road grime
+    price: 30
+
+  - name: Tire Dressing
+    description: Matte, non-greasy finish
+    price: XXX
+
+  - name: Paint Decontamination
+    description: Removal of embedded contaminants to prep paint surfaces
+    price: 50
+
+  - name: Paint Sealant Protection
+    description: Synthetic sealant for enhanced gloss and short-term protection
+    price: 50
+
+  - name: One-Step Paint Correction (with Sealant)
+    description: Single-stage polish to improve gloss and reduce light defects 
+    note: Requires paint decontamination
+    price: 150

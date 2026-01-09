@@ -1,30 +1,30 @@
 {% assign svc = site.data.services %}
 {% assign items = svc.services %}
 
-<section class="pricingTable">
-  <div class="pricingTable__wrap">
+<section class="serviceComparisons">
+  <div class="serviceComparisons__wrap">
 
-    <div class="pricingTable__scroll" role="region" aria-label="Services comparison table" tabindex="0">
-      <table class="pricingTable__table" role="table">
+    <div class="serviceComparisons__scroll" role="region" aria-label="Services comparison table" tabindex="0">
+      <table class="serviceComparisons__table" role="table">
         <thead>
           <tr>
-            <th class="pricingTable__th pricingTable__th--feature"> </th>
+            <th class="serviceComparisons__th serviceComparisons__th--feature"> </th>
 
-            <th class="pricingTable__th">
+            <th class="serviceComparisons__th">
               <div class="plan">
                 <div class="plan__name">{{ svc.packages.pkg_full_detail.name }}</div>
                 <div class="plan__sub">{{ svc.packages.pkg_full_detail.focus }}</div>
               </div>
             </th>
 
-            <th class="pricingTable__th pricingTable__th--highlight">
+            <th class="serviceComparisons__th serviceComparisons__th--highlight">
               <div class="plan plan--highlight">
                 <div class="plan__name">{{ svc.packages.pkg_exterior.name }}</div>
                 <div class="plan__sub">{{ svc.packages.pkg_exterior.focus }}</div>
               </div>
             </th>
 
-            <th class="pricingTable__th">
+            <th class="serviceComparisons__th">
               <div class="plan">
                 <div class="plan__name">{{ svc.packages.pkg_interior.name }}</div>
                 <div class="plan__sub">{{ svc.packages.pkg_interior.focus }}</div>
@@ -41,15 +41,15 @@
 
             {% if g != "" and g != current_group %}
               {% assign current_group = g %}
-              <tr class="pricingTable__section">
+              <tr class="serviceComparisons__section">
                 <td colspan="4">
-                  <span class="pricingTable__sectionTitle">{{ current_group | upcase }}</span>
+                  <span class="serviceComparisons__sectionTitle">{{ current_group | upcase }}</span>
                 </td>
               </tr>
             {% endif %}
 
-            <tr class="pricingTable__row">
-              <th class="pricingTable__feature" scope="row">
+            <tr class="serviceComparisons__row">
+              <th class="serviceComparisons__feature" scope="row">
                 <div class="feature">
                   <div class="feature__name">{{ item.name }}</div>
                   {% if item.description %}
@@ -58,29 +58,29 @@
                 </div>
               </th>
 
-              <td class="pricingTable__cell">{% include services-cell.html val=item.pkg_full_detail %}</td>
-              <td class="pricingTable__cell pricingTable__cell--highlight">{% include services-cell.html val=item.pkg_exterior %}</td>
-              <td class="pricingTable__cell">{% include services-cell.html val=item.pkg_interior %}</td>
+              <td class="serviceComparisons__cell">{% include services-cell.html val=item.pkg_full_detail %}</td>
+              <td class="serviceComparisons__cell serviceComparisons__cell--highlight">{% include services-cell.html val=item.pkg_exterior %}</td>
+              <td class="serviceComparisons__cell">{% include services-cell.html val=item.pkg_interior %}</td>
             </tr>
           {% endfor %}
         </tbody>
 
         <tfoot>
-          <tr class="pricingTable__ctaRow">
-            <th class="pricingTable__feature pricingTable__ctaSpacer" scope="row">
+          <tr class="serviceComparisons__ctaRow">
+            <th class="serviceComparisons__feature serviceComparisons__ctaSpacer" scope="row">
               <!-- empty spacer cell under the feature column -->
             </th>
 
-            <td class="pricingTable__cell pricingTable__ctaCell">
-              <a class="pricingTable__btn" href="#" aria-label="Book Full Detail">Book now</a>
+            <td class="serviceComparisons__cell serviceComparisons__ctaCell">
+              <a class="serviceComparisons__btn" href="#" aria-label="Book Full Detail">Book now</a>
             </td>
 
-            <td class="pricingTable__cell pricingTable__ctaCell">
-              <a class="pricingTable__btn" href="#" aria-label="Book Exterior Only">Book now</a>
+            <td class="serviceComparisons__cell serviceComparisons__ctaCell">
+              <a class="serviceComparisons__btn" href="#" aria-label="Book Exterior Only">Book now</a>
             </td>
 
-            <td class="pricingTable__cell pricingTable__ctaCell">
-              <a class="pricingTable__btn" href="#" aria-label="Book Interior Only">Book now</a>
+            <td class="serviceComparisons__cell serviceComparisons__ctaCell">
+              <a class="serviceComparisons__btn" href="#" aria-label="Book Interior Only">Book now</a>
             </td>
           </tr>
         </tfoot>
