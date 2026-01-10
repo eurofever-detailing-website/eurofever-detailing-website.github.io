@@ -1,6 +1,6 @@
 add_ons:
   - name: Steam Disinfection Clean
-    description: Steam sanitization to eliminate bacteria and odors
+    description: Steam sanitization to eliminate bacteria
     price: 50
 
   - name: Interior Surface Sealant
@@ -23,8 +23,8 @@ add_ons:
     description: Rinse treatment to remove undercarriage road grime
     price: 30
 
-  - name: Paint Decontamination
-    description: Removal of embedded contaminants to prep paint surfaces
+  - name: Clay Bar Decontamination
+    description: Removal of embedded contaminants from clear coat
     price: 50
 
   - name: Paint Sealant Protection
@@ -33,5 +33,5 @@ add_ons:
 
   - name: One-Step Paint Correction (with Sealant)
     description: Single-stage polish to improve gloss and reduce light defects 
-    note: Requires paint decontamination
+    note: Requires clay bar decontamination
     price: 150
