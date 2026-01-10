@@ -1,0 +1,35 @@
+.site-title--stack {
+  text-decoration: none;
+  line-height: 1;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+  font-family: var(--font-brand, "Inter", system-ui, sans-serif);
+  // font-weight: 400;
+  font-size: 100%;                /* tweak to match */
+  color: var(--color-carbon);
+}
+
+.site-title--stack span {
+  display: block;
+}
+
+
+
+@font-face {
+  font-family: "3616-grammastile-web";
+  src: url("/assets/fonts/3616-grammastile-web.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+:root {
+  --font-brand: "3616-grammastile-web", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+h1,
+.site-title {
+  font-family: var(--font-brand);
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}

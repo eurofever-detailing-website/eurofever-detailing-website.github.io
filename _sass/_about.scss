@@ -1,0 +1,108 @@
+/* ===== About Panel ===== */
+
+.aboutpanel{
+  /* closer to your reference slate */
+  background: var(--color-anthracite);
+  padding: clamp(56px, 7vw, 110px) 0;
+}
+
+.aboutpanel__wrap{
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 clamp(28px, 6vw, 72px);
+
+  display: grid;
+  grid-template-columns: 1fr 520px; /* fixed-ish image column like reference */
+  gap: clamp(32px, 6vw, 84px);
+  align-items: center;
+}
+
+.aboutpanel__left{
+  /* keeps the left content from stretching too wide */
+  max-width: 600px;
+}
+
+.aboutpanel__title{
+  /* In your current, this is too big. This matches reference scale. */
+  margin: 0 0 26px 0;
+  text-align: left;
+
+  font-family: var(--font-brand);
+  font-weight: 400;
+  font-size: 300%;
+
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  line-height: 0.9;
+
+  color: rgba(10,10,10,0.95);
+}
+
+.aboutpanel__text{
+  max-width: 520px;
+  font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  font-size: 100%;
+  line-height: 1.55;
+  color: rgba(10,10,10,0.9);
+}
+
+.aboutpanel__text p{
+  margin: 0 0 14px 0;
+}
+
+.aboutpanel__sig{
+  margin-top: 22px;
+  font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  font-size: 100%;
+  color: rgba(10,10,10,0.9);
+}
+
+.aboutpanel__photo{
+  margin: 0;
+  border-radius: 34px; /* big soft corners like reference */
+  overflow: hidden;
+  background: rgba(255,255,255,0.16);
+  box-shadow: 0 18px 50px rgba(0,0,0,0.25);
+}
+
+.aboutpanel__photo img{
+  display: block;
+  width: 100%;
+  height: auto;
+
+  /* reference feels like a big rounded card */
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  object-position: center;
+//  FIXME photo too large when window size decreases
+}
+
+@media (max-width: 980px){
+  .aboutpanel__wrap{
+    grid-template-columns: 1fr;
+  }
+  .aboutpanel__left,
+  .aboutpanel__text{
+    max-width: none;
+  }
+  .aboutpanel__photo img{
+    aspect-ratio: 4 / 3;
+  }
+}
+
+/* About page: break out of Minima wrapper */
+.aboutpage {
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  margin-top: 2vw;
+}
+
+/* remove default page padding around the section */
+.aboutpanel--page {
+  margin: 0;
+}
+
+.aboutpage .page-content {
+  padding-top: 10%;
+}

@@ -1,0 +1,195 @@
+/* ===== Header (reference styling) ===== */
+
+.site-header--custom {
+  border: 0;
+  background: #fff;
+
+  overflow: visible;
+}
+
+.site-header__inner {
+  max-width: none;                /* optional: allow wider header */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 34px 56px;             /* height/whitespace like reference */
+}
+
+.site-nav--custom .trigger {
+  display: flex;
+  gap: 48px;                      /* wide spacing like reference */
+  align-items: center;
+}
+
+.site-nav--custom .page-link {
+  font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  font-weight: 400;
+  font-size: 80%;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-carbon);
+  text-decoration: none;
+}
+
+.site-nav--custom .page-link:hover {
+  opacity: 0.75;
+}
+
+.site-header__inner > .site-nav--custom {
+  margin-left: auto;
+}
+
+
+/* Landing-only header behavior */
+body.landing .site-header {
+  position: fixed;           /* key: remove it from document flow */
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 2000;
+
+  /* Hidden state */
+  transform: translateY(-120%);
+  opacity: 0;
+  pointer-events: none;
+
+  /* Make sure no “white bar” shows */
+  background: transparent;
+  border-top: 0;
+  border-bottom: 0;
+  box-shadow: none;
+
+  transition: transform 220ms ease, opacity 220ms ease, background 220ms ease;
+}
+
+/* Visible after scroll */
+body.landing.landing--show-header .site-header {
+  transform: translateY(0);
+  opacity: 1;
+  pointer-events: auto;
+
+  /* Choose your visible header look */
+  background: rgba(255, 255, 255, 0.90);   /* or rgba(0,0,0,0.35) for dark overlay */
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  border-bottom: 1px solid rgba(0,0,0,0.08);
+}
+
+/* Landing page (when visible) */
+body.landing.landing--show-header .site-header__inner {
+  padding: 52px 64px;
+}
+
+/* ===== Mobile menu ===== */
+
+/* Always honor hidden attribute */
+.mobile-menu[hidden] { display: none !important; }
+
+/* Toggle button (hamburger) */
+.nav-toggle {
+  display: none; /* enabled on mobile */
+  width: 48px;
+  height: 48px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  position: relative; /* for absolute bars */
+}
+
+/* Three bars stacked with known positions */
+.nav-toggle__bar {
+  position: absolute;
+  left: 10px;
+  right: 10px;
+  height: 2px;
+  background: var(--color-carbon);
+  border-radius: 2px;
+  transition: transform 180ms ease, opacity 180ms ease;
+}
+
+.nav-toggle__bar:nth-child(1) { top: 16px; }
+.nav-toggle__bar:nth-child(2) { top: 23px; }
+.nav-toggle__bar:nth-child(3) { top: 30px; }
+
+/* Animate to X when open */
+html.menu-open .nav-toggle__bar:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+html.menu-open .nav-toggle__bar:nth-child(2) {
+  opacity: 0;
+}
+html.menu-open .nav-toggle__bar:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* Full-screen overlay menu */
+.mobile-menu {
+  position: fixed;
+  inset: 0;              /* full viewport */
+  z-index: 99999;        /* above header */
+  background: rgba(255, 255, 255, 0.98);
+
+  /* center the nav */
+  display: none;         /* enabled by media query */
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+  /* prevent any inherited layout constraints */
+  width: 100vw;
+  height: 100vh;
+}
+
+.mobile-menu__nav {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.mobile-menu__link {
+  font-family: var(--font-brand, "Inter", system-ui, sans-serif);
+  font-weight: 400;
+  font-size: 90%;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-carbon);
+  text-decoration: none;
+}
+
+.mobile-menu__link:hover { opacity: 0.75; }
+
+.mobile-menu__close {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  border: 0;
+  background: transparent;
+  font-size: 40px;
+  line-height: 1;
+  color: var(--color-carbon);
+  cursor: pointer;
+}
+
+/* Disable background scroll while menu open */
+html.menu-open,
+html.menu-open body {
+  overflow: hidden;
+}
+
+/* Responsive switch */
+@media (max-width: 860px) {
+  .site-nav--custom { display: none; }
+  .nav-toggle { display: inline-block; }
+  .mobile-menu { display: flex; }
+}
+
+
+/* Service page: break out of Minima wrapper */
+.layout-services {
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  margin-top: 2vw;
+}

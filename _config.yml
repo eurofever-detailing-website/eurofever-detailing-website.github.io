@@ -40,6 +40,10 @@ palette:
   carbon: "#050505"
   anthracite: "#59677B"
 
+sass:
+  sass_dir: _sass
+  style: compressed
+
 # Build settings
 theme: minima
 plugins:

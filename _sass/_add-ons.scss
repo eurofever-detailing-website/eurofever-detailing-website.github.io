@@ -1,0 +1,70 @@
+/* =========================================================
+   ADD-ONS — ROUNDED TILE CARDS
+   ========================================================= */
+
+.addons{
+  padding: clamp(18px, 3vw, 44px) 16px;
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto;
+}
+
+.addons__wrap{
+  max-width: 1120px;
+  margin: 0 auto;
+}
+
+.addons__grid{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 16px;
+  margin-top: 18px;
+}
+
+.addons__card{
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 18px 20px;
+  border-radius: 14px;
+  border: 1px solid rgba(0,0,0,.12);
+  background: transparent;
+}
+
+.addons__cardText{
+  max-width: 80%;
+}
+
+.addons__name{
+  font-weight: 400;
+  font-size: 16px;
+  margin-bottom: 6px;
+  color: #3f3f3f;
+}
+
+.addons__desc{
+  font-style: italic;
+  color: rgba(0,0,0,.55);
+  font-size: 14px;
+  line-height: 1.45;
+}
+
+.addons__priceWrap{
+  display: flex;
+  align-items: center;
+}
+
+.addons__price{
+  font-weight: 400;
+  font-size: 14px;
+  white-space: nowrap;
+  color: #3f3f3f;
+}
+
+.addon-note{
+  display: inline-block;
+  margin-top: 6px;
+  font-weight: 500;
+  font-style: italic;
+  color: rgba(0,0,0,.55);
+  font-size: 14px;
+  line-height: 1.45;
+}
