@@ -1,8 +1,8 @@
 /* =========================================================
-   SERVICES TABLE — MINIMAL / SPEC STYLE
+   SERVICES TABLE
    ========================================================= */
 
-/* Base table container stays clean */
+/* Base */
 .serviceComparisons{
   padding: clamp(18px, 3vw, 44px) 16px;
   font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto;
@@ -13,35 +13,87 @@
   margin: 0 auto;
 }
 
-/* Scroll wrapper*/
+/* Controls (Vehicle type toggle) */
+.serviceComparisons__controls{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  margin: 0 0 28px 0;
+  text-align: center;
+}
+
+.serviceComparisons__controlsLabel{
+  font-size: 14px;
+  color: rgba(0,0,0,.55);
+  text-transform: lowercase;
+}
+
+.serviceComparisons__controlsTitle{
+  font-size: clamp(22px, 3vw, 32px);
+  font-weight: 600;
+  letter-spacing: .01em;
+  margin: 0;
+}
+
+/* Segmented control */
+.serviceComparisons__seg{
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px;
+  border-radius: 999px;
+  border: 1px solid rgba(0,0,0,.18);
+  background: #fff;
+}
+
+.serviceComparisons__segBtn{
+  appearance: none;
+  border: 0;
+  background: transparent;
+  padding: 8px 14px;
+  border-radius: 999px;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  color: rgba(0,0,0,.7);
+  white-space: nowrap;
+}
+
+.serviceComparisons__segBtn:hover{
+  background: rgba(0,0,0,.04);
+}
+
+.serviceComparisons__segBtn.is-active{
+  background: rgba(0,0,0,.06);
+  color: rgba(0,0,0,.95);
+  font-weight: 600;
+}
+
+/* Scroll wrapper */
 .serviceComparisons__scroll{
-  max-height: 70vh;          /* adjust: 60–80vh */
-  overflow-y: auto;          /* <-- required for sticky header */
+  max-height: 70vh;
+  overflow-y: auto;   /* required for sticky header */
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
   position: relative;
-  border-right: 0;               
-  border-left: 0;
-  border-top: 0;
-  border-bottom: 0;
   background: transparent;
+  border: 0;
 }
 
 /* Table layout */
 .serviceComparisons__table{
-  background: transparent;
   width: 100%;
+  background: transparent;
   border-collapse: collapse;
-  table-layout: fixed;   /* key: forces columns to share space */
-  min-width: 0;          /* key: removes forced horizontal scroll */
+  table-layout: fixed; /* forces columns to share space */
+  min-width: 0;        /* removes forced horizontal scroll */
   border-spacing: 0;
-  border-right: 0;               
-  border-left: 0;
-  border-top: 0;
-  border-bottom: 0;
+  border: 0;
 }
 
-/* Remove zebra striping from all rows */
+/* Remove zebra striping */
 .serviceComparisons__table tr:nth-child(even),
 .serviceComparisons__table tr:nth-child(odd){
   background-color: transparent !important;
@@ -53,53 +105,56 @@
 .serviceComparisons__feature{
   padding: 14px 14px;
   border-bottom: 1px solid rgba(0,0,0,.12);
-  border-right: 0;               
   border-left: 0;
-  background: transparent;       
+  border-right: 0;
+  background: transparent;
   vertical-align: top;
   text-align: left;
   line-height: 1.35;
 }
 
-/* Header row */
+/* Sticky header cells */
 .serviceComparisons__th{
   position: sticky;
   top: 0;
-  z-index: 10;               /* above body cells */
-  background: #fff;          /* must be opaque */
-  border-bottom: 3px solid rgba(0,0,0,.18);
-  border-right: 0;               
-  border-left: 0;
+  z-index: 50;
+  background: #fff; /* must be opaque */
   border-top: 0;
+  border-bottom: 0; /* use shadow for “sticky divider line” */
+  box-shadow: inset 0 -2px 0 rgba(0,0,0,.18);
 }
 
-/* First column (service names) */
+/* Give header a consistent height so prices can bottom-align */
+.serviceComparisons__table thead th.serviceComparisons__th{
+  height: clamp(120px, 18vw, 200px);
+  vertical-align: top;
+}
+
+/* First column (feature names) */
 .serviceComparisons__th--feature,
 .serviceComparisons__feature{
   width: 36%;
   min-width: 280px;
-  background: transparent;
 }
 
-/* Highlight ONLY Full Exterior + Interior column */
+/* Highlight ONLY Full Exterior + Interior column (2nd column) */
 .serviceComparisons__table thead th:nth-child(2),
 .serviceComparisons__table tbody td:nth-child(2),
 .serviceComparisons__table tfoot td:nth-child(2){
   background: #F5F5F5;
-  border-right: 0;               
-  border-left: 0;
 }
 
-/* Keep highlighted column header consistent */
-.serviceComparisons__table thead th:nth-child(2){
-  background: #F5F5F5;
+/* Plan header layout + typography */
+.serviceComparisons__th .plan{
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
-/* Plan text */
 .plan__name{
   font-family: "Inter", system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
   font-optical-sizing: auto;
-  font-weight: 800 !important;  
+  font-weight: 800 !important;
   font-size: clamp(18px, 2vw, 24px);
   line-height: 1;
 }
@@ -111,20 +166,94 @@
   font-weight: 400;
 }
 
-/* Feature text */
+/* Price: bottom aligned within header plan */
+.plan__price{
+  margin-top: auto;         /* pushes to bottom */
+  padding-top: 12px;        /* breathing room */
+  font-weight: 800;
+  font-size: clamp(24px, 3vw, 36px);
+  line-height: 1.1;
+}
+
+/* Hide all price variants; show only active size */
+.plan__priceVal{
+  display: none;
+}
+
+.serviceComparisons[data-active-size="small"] .plan__priceVal[data-size="small"],
+.serviceComparisons[data-active-size="mid"]   .plan__priceVal[data-size="mid"],
+.serviceComparisons[data-active-size="large"] .plan__priceVal[data-size="large"]{
+  display: inline;
+}
+
+/* Feature expander (works on all layouts) */
+.feature{
+  margin: 0;
+}
+
+.feature__summary{
+  list-style: none;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.feature__summary::-webkit-details-marker{ display: none; }
+.feature__summary::marker{ content: ""; }
+
 .feature__name{
   font-weight: 400;
   font-size: 16px;
-  margin-bottom: 6px;
+  margin: 0 0 6px 0;
+}
+
+.feature__toggle{
+  font-size: 12px;
+  color: rgba(0,0,0,.55);
+  white-space: nowrap;
+  position: relative;
+  padding-right: 14px;
+}
+
+/* chevron */
+.feature__toggle::after{
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 50%;
+  width: 6px;
+  height: 6px;
+  border-right: 1.5px solid rgba(0,0,0,.55);
+  border-bottom: 1.5px solid rgba(0,0,0,.55);
+  transform: translateY(-55%) rotate(45deg);
+  transition: transform .18s ease;
+}
+
+.feature[open] .feature__toggle::after{
+  transform: translateY(-40%) rotate(-135deg);
 }
 
 .feature__desc{
+  margin-top: 8px;
   color: rgba(0,0,0,.55);
   font-weight: 300;
   font-style: italic;
   font-size: 14px;
   line-height: 1.45;
   max-width: 52ch;
+}
+
+/* Mobile: hide descriptions unless expanded */
+@media (max-width: 720px){
+  details.feature .feature__desc{
+    display: none;
+  }
+  details.feature[open] .feature__desc{
+    display: block;
+  }
 }
 
 /* Cell tokens */
@@ -137,13 +266,13 @@
   padding: 4px 10px;
   border-radius: 999px;
   border: 1px solid rgba(0,0,0,.2);
-  background: transparent;  
+  background: transparent;
   font-size: 14px;
-  color: var(--color-carbon);
+  // color: var(--color-carbon);
 }
 
 .cell--text{
-  color: var(--color-carbon);
+  // color: var(--color-carbon);
   font-weight: 400;
   font-size: 14px;
 }
@@ -184,17 +313,16 @@
   border: 0;
 }
 
-
 /* Footer CTA buttons */
 .serviceComparisons__ctaRow .serviceComparisons__feature,
 .serviceComparisons__ctaRow .serviceComparisons__cell{
-  border-bottom: 0;           /* optional: no rule after buttons */
+  border-bottom: 0;
   padding-top: 18px;
   padding-bottom: 18px;
 }
 
 .serviceComparisons__ctaCell{
-  text-align: left;           /* match your table alignment */
+  text-align: left;
 }
 
 .serviceComparisons__btn{
@@ -209,156 +337,23 @@
   font-weight: 600;
   font-size: 14px;
   letter-spacing: .01em;
-  background: transparent;    /* stays consistent with your spec look */
+  background: transparent;
 }
 
-/* Optional: subtle hover */
 .serviceComparisons__btn:hover{
   border-color: rgba(0,0,0,.28);
 }
 
-/* Optional: if you’re still highlighting Full Detail column, make its button slightly emphasized */
+/* Optional: emphasize highlighted column button */
 .serviceComparisons__table tfoot td:nth-child(2) .serviceComparisons__btn{
   border-color: rgba(0,0,0,.30);
 }
 
-
-/* Controls bar above the table */
-.serviceComparisons__controls{
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  gap: 12px;
-  margin: 0 0 10px 0;
-}
-
-.serviceComparisons__controlsLabel{
-  font-size: 12px;
-  color: rgba(0,0,0,.55);
-  text-transform: lowercase;
-}
-
-/* Segmented control */
-.serviceComparisons__seg{
-  display: inline-flex;
-  border: 1px solid rgba(0,0,0,.18);
-  border-radius: 999px;
-  overflow: hidden;
-}
-
-.serviceComparisons__segBtn{
-  appearance: none;
-  border: 0;
-  background: transparent;
-  padding: 8px 12px;
-  font: inherit;
-  font-size: 12.5px;
-  cursor: pointer;
-  color: rgba(0,0,0,.7);
-}
-
-.serviceComparisons__segBtn.is-active{
-  background: rgba(0,0,0,.06);
-  color: rgba(0,0,0,.95);
-}
-
-/* Sticky header: ensure it has an opaque background */
-.serviceComparisons__th{
-  background: #fff;              /* key: so it doesn't look see-through */
-  z-index: 5;
-}
-
-/* If you highlight column 2, keep that background in the header too */
-.serviceComparisons__table thead th:nth-child(2){
-  background: #f5f5f5;
-}
-
-/* Price styling */
-.plan__price{
-  margin-top: 6px;
-  font-weight: 800;
-  font-size: clamp(24px, 3vw, 36px);;
-  line-height: 2;
-}
-
-.plan__priceVal{
-  display: inline-block;
-  display: none;
-}
-
-/* Show only the active vehicle size price */
-.serviceComparisons{
-  --active-size: small; /* default */
-}
-
-.serviceComparisons[data-active-size="small"] .plan__priceVal[data-size="small"],
-.serviceComparisons[data-active-size="mid"]   .plan__priceVal[data-size="mid"],
-.serviceComparisons[data-active-size="large"] .plan__priceVal[data-size="large"]{
-  display: inline;
-}
-
-/* Vehicle size selector */
-.serviceComparisons__controls{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 14px;
-  margin-bottom: 28px;
-  text-align: center;
-}
-
-.serviceComparisons__controlsTitle{
-  font-size: clamp(22px, 3vw, 32px);
-  font-weight: 600;
-  letter-spacing: .01em;
-  margin: 0;
-}
-
-/* Toggle group stays compact and centered */
-.serviceComparisons__seg{
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  padding: 4px;
-  border-radius: 999px;
-  border: 1px solid rgba(0,0,0,.18);
-  background: #fff;
-}
-
-/* Buttons */
-.serviceComparisons__segBtn{
-  appearance: none;
-  border: 0;
-  background: transparent;
-  padding: 8px 14px;
-  border-radius: 999px;
-  font-size: 13px;
-  font-weight: 500;
-  cursor: pointer;
-  white-space: nowrap;
-}
-
-.serviceComparisons__segBtn.is-active{
-  background: rgba(0,0,0,.06);
-  font-weight: 600;
-}
-
-/* Hover polish */
-.serviceComparisons__segBtn:hover{
-  background: rgba(0,0,0,.04);
-}
-
-
+/* Mobile layout tweaks */
 @media (max-width: 720px){
-
   /* Keep all columns visible */
   .serviceComparisons__scroll{
     overflow-x: hidden;
-  }
-
-  .serviceComparisons__table{
-    table-layout: fixed;
-    min-width: 0;
   }
 
   /* Make the feature column narrower */
@@ -379,28 +374,6 @@
   .serviceComparisons__cell,
   .serviceComparisons__feature{
     padding: 10px 8px;
-    font-size: clamp(18px, 2vw, 24px);
-  }
-
-  /* Hide feature descriptions on mobile */
-  .feature__desc{
-    display: none;
-  }
-
-  // /* Tighten plan header typography */
-  // .plan__name{
-  //   font-size: 13px;
-  //   line-height: 1.15;
-  // }
-
-  // .plan__sub{
-  //   font-size: 11px;
-  //   line-height: 1.25;
-  // }
-
-  .plan__price{
-    line-height: 1;
-    margin-top: 6px;
   }
 
   /* Pills/checks smaller */
@@ -420,127 +393,11 @@
     height: 3px;
   }
 
-  /* Optional: hide the big "Select your vehicle type" title inside sticky controls */
   .serviceComparisons__controlsTitle{
     font-size: 16px;
   }
-}
 
-.feature__more{ display: none; }
-
-@media (max-width: 720px){
-  .feature__desc{ display: none; }
-  .feature__more{ display: block; }
-  .feature__summary{
-    font-size: 11px;
-    color: rgba(0,0,0,.55);
-    cursor: pointer;
-    margin-top: 4px;
+  .plan__price{
+    font-size: clamp(18px, 5vw, 28px);
   }
-  .feature__more[open] .feature__desc{
-    display: block;
-    margin-top: 6px;
-  }
-}
-
-/* Feature expander (works on all layouts) */
-.feature{
-  margin: 0;
-}
-
-.feature__summary{
-  list-style: none;
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 12px;
-  cursor: pointer;
-  user-select: none;
-}
-
-.feature__summary::-webkit-details-marker{ display: none; }
-.feature__summary::marker{ content: ""; }
-
-.feature__name{
-  font-weight: 400;
-  font-size: 14px;
-  margin: 0;
-}
-
-.feature__toggle{
-  font-size: 12px;
-  color: rgba(0,0,0,.55);
-  white-space: nowrap;
-  position: relative;
-  padding-right: 14px;
-}
-
-/* chevron */
-.feature__toggle::after{
-  content: "";
-  position: absolute;
-  right: 0;
-  top: 50%;
-  width: 6px;
-  height: 6px;
-  border-right: 1.5px solid rgba(0,0,0,.55);
-  border-bottom: 1.5px solid rgba(0,0,0,.55);
-  transform: translateY(-55%) rotate(45deg);
-  transition: transform .18s ease;
-}
-
-.feature[open] .feature__toggle::after{
-  transform: translateY(-40%) rotate(-135deg);
-}
-
-.feature__desc{
-  margin-top: 8px;
-  color: rgba(0,0,0,.55);
-  font-weight: 300;
-  font-style: italic;
-  font-size: 12.5px;
-  line-height: 1.45;
-  max-width: 52ch;
-}
-
-/* Make the header bottom rule sticky by drawing it on the sticky header cells */
-.serviceComparisons__table thead th.serviceComparisons__th{
-  position: sticky;
-  z-index: 50;
-  box-shadow: inset 0 -2px 0 rgba(0,0,0,.18);
-}
-
-/* Make header plans a vertical flex layout */
-.serviceComparisons__th .plan{
-  display: flex;
-  flex-direction: column;
-  height: 100%;              /* fill the header cell */
-}
-
-/* Push price to the bottom */
-.plan__price{
-  margin-top: auto;          /* key line */
-  padding-top: 12px;         /* breathing room from text above */
-}
-
-.serviceComparisons__table thead th{
-  min-height: 800px;
-}
-
-/* Give the header row a consistent height so prices can bottom-align */
-.serviceComparisons__table thead th.serviceComparisons__th{
-  height: clamp(120px, 18vw, 200px);   /* tweak to taste */
-  vertical-align: top;
-}
-
-/* Make the plan fill the header cell */
-.serviceComparisons__table thead th.serviceComparisons__th .plan{
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-}
-
-/* Push the price to the bottom */
-.serviceComparisons__table thead th.serviceComparisons__th .plan__price{
-  margin-top: auto;
 }
