@@ -1,16 +1,97 @@
 /* =========================================================
-   SERVICES TABLE
+   SERVICES PAGE
    ========================================================= */
+
+.servicesIntroPanel{
+  position: relative;
+  background-image: url('/assets/photos/services-intro-foam.jpg');
+  // background-image: url('/assets/photos/services-intro-donnie.jpg');
+  background-size: cover;
+  background-position: center;
+  padding: clamp(36px, 5vw, 64px) 16px clamp(28px, 4vw, 44px);  
+  text-align: center;
+  overflow: hidden;
+  z-index: 0;
+}
+
+/* soft “wash” so text stays readable */
+.servicesIntroPanel::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index: -1;
+  background: rgba(255, 255, 255, 0.6);
+  pointer-events:none;
+}
+
+/* fade to white at the bottom */
+.servicesIntroPanel::after{
+  content:"";
+  position:absolute;
+  left:0; right:0; bottom:0;
+  height: 200px; /* adjust 100–200px */
+  background: linear-gradient(to bottom,
+    rgba(255,255,255,0),
+    rgba(255,255,255,1)
+  );
+  pointer-events:none;
+  z-index: -1;
+}
+
+.servicesIntroPanel__inner{
+  position: relative;
+  z-index: 1;
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+.servicesIntroPanel__eyebrow{
+  font-family: var(--font-brand);
+  letter-spacing: .08em;
+  font-size: 12.5px;
+  color: #050505;
+  margin-bottom: 18px;
+  display: block;
+  text-transform: uppercase;
+}
+
+.servicesIntroPanel__title{
+  margin: 0 0 20px;
+  font-family: "Inter", system-ui, sans-serif;
+  font-weight: 700;
+  font-size: clamp(28px, 5vw, 48px);
+  line-height: 1.05;
+  color: var(--color-carbon);
+  text-transform: none;
+}
+
+.servicesIntroPanel__lead{
+  margin-bottom: 40px;
+  font-family: "Inter", system-ui, sans-serif;
+  font-size: clamp(14px, 2vw, 18px);
+  line-height: 1.35;
+  color: #050505;
+}
+
+
 
 /* Base */
 .serviceComparisons{
   padding: clamp(18px, 3vw, 44px) 16px;
   font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto;
+  background: #fff;
 }
 
+
 .serviceComparisons__wrap{
-  max-width: 1120px;
-  margin: 0 auto;
+  width: min(70%, 1120px);
+  margin-inline: auto;
+}
+
+@media (max-width: 1024px){
+  .serviceComparisons__wrap{
+    width: min(92vw, 1120px);
+  }
 }
 
 /* Controls (Vehicle type toggle) */
@@ -19,7 +100,7 @@
   flex-direction: column;
   align-items: center;
   gap: 14px;
-  margin: 0 0 28px 0;
+  margin: 0 0 10px 0;
   text-align: center;
 }
 
@@ -29,47 +110,86 @@
   text-transform: lowercase;
 }
 
-.serviceComparisons__controlsTitle{
-  font-size: clamp(22px, 3vw, 32px);
-  font-weight: 600;
-  letter-spacing: .01em;
-  margin: 0;
-}
-
-/* Segmented control */
+/* Segmented toggle (single control) */
 .serviceComparisons__seg{
   display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  padding: 4px;
-  border-radius: 999px;
+  align-items: stretch;
   border: 1px solid rgba(0,0,0,.18);
+  border-radius: 999px;
+  overflow: hidden;
   background: #fff;
+  width: min(680px, 100%);   /* wider = clearer separation + better scan */
+  justify-content: space-between;
 }
 
+/* each segment */
 .serviceComparisons__segBtn{
   appearance: none;
   border: 0;
   background: transparent;
-  padding: 8px 14px;
-  border-radius: 999px;
-  font: inherit;
-  font-size: 14px;
-  font-weight: 500;
   cursor: pointer;
-  color: rgba(0,0,0,.7);
+  line-height: 1.1;
+
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+
+  /* no rounded individual buttons */
+  border-radius: 0;
+
+  /* segment separators */
+  position: relative;
+
+  flex: 1;                   /* equal segments */
+  text-align: center;
+  padding: 12px 16px;
+}
+
+/* vertical dividers between segments */
+.serviceComparisons__segBtn + .serviceComparisons__segBtn{
+  border-left: 1px solid rgba(0,0,0,.12);
+}
+
+/* active segment */
+.serviceComparisons__segBtn.is-active{
+  background: rgba(0,0,0,.06);
+  box-shadow:
+    inset 0 0 0 1px rgba(0,0,0,.06),
+    0 1px 2px rgba(0,0,0,.08);
+}
+
+/* typography */
+.segBtn__label{
+  font-weight: 600;
+  font-size: 14px;
+  color: rgba(0,0,0,.95);
   white-space: nowrap;
 }
 
+.segBtn__desc{
+  font-weight: 300;
+  font-size: 12.5px;
+  color: rgba(0,0,0,.60);
+  white-space: nowrap;
+}
+
+/* hover (subtle) */
 .serviceComparisons__segBtn:hover{
   background: rgba(0,0,0,.04);
 }
 
-.serviceComparisons__segBtn.is-active{
-  background: rgba(0,0,0,.06);
-  color: rgba(0,0,0,.95);
-  font-weight: 600;
+/* mobile: allow wrap if needed */
+@media (max-width: 520px){
+  .segBtn__desc{ white-space: normal; }
+  .serviceComparisons__segBtn{ padding: 10px 12px; }
 }
+
+@media (max-width: 900px) {
+  .serviceComparisons__table {
+    width: 100%;
+  }
+}
+
 
 /* Scroll wrapper */
 .serviceComparisons__scroll{
@@ -80,11 +200,13 @@
   position: relative;
   background: transparent;
   border: 0;
+  display: flex;
+  justify-content: center;
 }
 
 /* Table layout */
 .serviceComparisons__table{
-  width: 100%;
+  width: 95%; 
   background: transparent;
   border-collapse: collapse;
   table-layout: fixed; /* forces columns to share space */
@@ -128,14 +250,24 @@
 .serviceComparisons__table thead th.serviceComparisons__th{
   height: clamp(120px, 18vw, 200px);
   vertical-align: top;
+  padding-bottom: 20px;
 }
 
-/* First column (feature names) */
-.serviceComparisons__th--feature,
-.serviceComparisons__feature{
-  width: 36%;
-  min-width: 280px;
+.serviceComparisons__scroll::before{
+  content:"";
+  position: sticky;
+  top: 0;
+  display: block;
+  height: 1px;
+  box-shadow: 0 2px 0 rgba(0,0,0,.08);
 }
+
+// /* First column (feature names) */
+// .serviceComparisons__th--feature,
+// .serviceComparisons__feature{
+//   width: 30%;
+//   min-width: 280px;
+// }
 
 /* Highlight ONLY Full Exterior + Interior column (2nd column) */
 .serviceComparisons__table thead th:nth-child(2),
@@ -178,6 +310,7 @@
 /* Hide all price variants; show only active size */
 .plan__priceVal{
   display: none;
+  transition: opacity .12s ease;
 }
 
 .serviceComparisons[data-active-size="small"] .plan__priceVal[data-size="small"],
@@ -206,9 +339,12 @@
 
 .feature__name{
   font-weight: 400;
-  font-size: 16px;
-  margin: 0 0 6px 0;
+  font-size: clamp(12px, 1.5vw, 16px);
+  line-height: 1.25;
+  overflow-wrap: anywhere;
 }
+
+
 
 .feature__toggle{
   font-size: 12px;
@@ -241,9 +377,9 @@
   color: rgba(0,0,0,.55);
   font-weight: 300;
   font-style: italic;
-  font-size: 14px;
+  font-size: clamp(11.5px, 1.5vw, 14px);
   line-height: 1.45;
-  max-width: 52ch;
+  max-width: 48ch;
 }
 
 /* Mobile: hide descriptions unless expanded */
@@ -268,11 +404,9 @@
   border: 1px solid rgba(0,0,0,.2);
   background: transparent;
   font-size: 14px;
-  // color: var(--color-carbon);
 }
 
 .cell--text{
-  // color: var(--color-carbon);
   font-weight: 400;
   font-size: 14px;
 }
@@ -284,6 +418,7 @@
   display: inline-block;
   border-radius: 999px;
   background: var(--color-anthracite);
+  opacity: .75;
   position: relative;
   top: 2px;
 }
@@ -313,42 +448,6 @@
   border: 0;
 }
 
-/* Footer CTA buttons */
-.serviceComparisons__ctaRow .serviceComparisons__feature,
-.serviceComparisons__ctaRow .serviceComparisons__cell{
-  border-bottom: 0;
-  padding-top: 18px;
-  padding-bottom: 18px;
-}
-
-.serviceComparisons__ctaCell{
-  text-align: left;
-}
-
-.serviceComparisons__btn{
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 10px 16px;
-  border-radius: 999px;
-  border: 1px solid rgba(0,0,0,.18);
-  text-decoration: none;
-  color: inherit;
-  font-weight: 600;
-  font-size: 14px;
-  letter-spacing: .01em;
-  background: transparent;
-}
-
-.serviceComparisons__btn:hover{
-  border-color: rgba(0,0,0,.28);
-}
-
-/* Optional: emphasize highlighted column button */
-.serviceComparisons__table tfoot td:nth-child(2) .serviceComparisons__btn{
-  border-color: rgba(0,0,0,.30);
-}
-
 /* Mobile layout tweaks */
 @media (max-width: 720px){
   /* Keep all columns visible */
@@ -356,24 +455,29 @@
     overflow-x: hidden;
   }
 
-  /* Make the feature column narrower */
-  .serviceComparisons__th--feature,
-  .serviceComparisons__feature{
-    width: 30%;
-    min-width: 0;
-  }
+  // /* Make the feature column narrower */
+  // .serviceComparisons__th--feature,
+  // .serviceComparisons__feature{
+  //   width: 10%;
+  //   min-width: 0;
+  // }
 
-  /* Plan columns share remaining space evenly */
-  .serviceComparisons__table thead th:not(.serviceComparisons__th--feature),
-  .serviceComparisons__table tbody td{
-    width: calc(70% / 3);
-  }
+  // /* Plan columns share remaining space evenly */
+  // .serviceComparisons__table thead th:not(.serviceComparisons__th--feature),
+  // .serviceComparisons__table tbody td{
+  //   width: calc(90% / 3);
+  // }
 
   /* Tighten cell spacing */
   .serviceComparisons__th,
   .serviceComparisons__cell,
   .serviceComparisons__feature{
     padding: 10px 8px;
+  }
+
+  /* Center the checkmarks so they don't feel cramped */
+  .serviceComparisons__cell{
+    text-align: center;
   }
 
   /* Pills/checks smaller */
@@ -399,5 +503,58 @@
 
   .plan__price{
     font-size: clamp(18px, 5vw, 28px);
+  }
+}
+
+
+/* === Fluid column sizing (smooth scaling) === */
+.serviceComparisons {
+  /* Tweak these to taste */
+  --feature-col: clamp(180px, 30vw, 360px);  /* width of first column */
+  --cell-pad-x: clamp(8px, 1.2vw, 14px);
+  --cell-pad-y: clamp(10px, 1.2vw, 14px);
+  --price-size: clamp(22px, 3.2vw, 36px);
+  --sub-size: clamp(12px, 1.2vw, 14px);
+}
+
+/* Apply the padding vars */
+.serviceComparisons__th,
+.serviceComparisons__cell,
+.serviceComparisons__feature{
+  padding: var(--cell-pad-y) var(--cell-pad-x);
+}
+
+/* Feature column: use the fluid width instead of fixed + hard min-width */
+.serviceComparisons__th--feature,
+.serviceComparisons__feature{
+  width: var(--feature-col);
+  min-width: 0; /* IMPORTANT: removes the “sudden crunch” behavior */
+}
+
+/* Plan typography scales smoothly */
+.plan__sub{
+  font-size: var(--sub-size);
+}
+
+.plan__price{
+  font-size: var(--price-size);
+}
+
+/* Smaller desktop: tighten feature column + header spacing */
+@media (max-width: 1024px){
+  .serviceComparisons{
+    --feature-col: clamp(160px, 26vw, 300px);
+  }
+
+  .plan__name{
+    font-size: clamp(17px, 2.2vw, 22px);
+  }
+}
+
+/* Tablet-ish: tighter still */
+@media (max-width: 860px){
+  .serviceComparisons{
+    --feature-col: clamp(90px, 24vw, 160px);
+    --price-size: clamp(20px, 3.8vw, 32px);
   }
 }

@@ -1,44 +1,142 @@
-/* ===== Header (reference styling) ===== */
 
-.site-header--custom {
-  border: 0;
+
+/* ===== Header (responsive + smooth scaling) ===== */
+
+.site-header--custom{
   background: #fff;
-
-  overflow: visible;
+  border: 0;
+  position: relative;
+  z-index: 1000; /* stay above intro panel imagery */
 }
 
-.site-header__inner {
-  max-width: none;                /* optional: allow wider header */
+.site-header__inner{
+  max-width: none;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 34px 56px;             /* height/whitespace like reference */
+
+  /* was fixed; make it responsive */
+  padding: clamp(18px, 3vw, 34px) clamp(16px, 4.5vw, 56px);
+
+  /* prevent weird squeeze behavior */
+  gap: clamp(14px, 2vw, 28px);
 }
 
-.site-nav--custom .trigger {
+.site-title--stack{
+  text-decoration: none;
+  text-transform: uppercase;
+  font-family: var(--font-brand, "Inter", system-ui, sans-serif);
+  font-weight: 400;
+  line-height: 0.9;
+
+  /* key: predictable scaling */
+  font-size: clamp(12.5px, 1vw, 16px);
+
+  /* also scales so it doesn’t look “too spaced” on small widths */
+  letter-spacing: clamp(0.04em, 0.35vw, 0.08em);
+
+  /* keeps the wordmark from collapsing */
+  white-space: nowrap;
+  flex: 0 0 auto;
+}
+
+.site-title--stack span{ display:block; }
+
+.site-nav--custom .trigger{
   display: flex;
-  gap: 48px;                      /* wide spacing like reference */
   align-items: center;
+
+  /* was fixed 48px; make it responsive */
+  gap: clamp(16px, 3vw, 48px);
 }
 
-.site-nav--custom .page-link {
+.site-nav--custom .page-link{
   font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   font-weight: 400;
-  font-size: 80%;
-  letter-spacing: 0.06em;
+
+  /* smoother scaling */
+  font-size: clamp(12.5px, 1vw, 14px);
+  letter-spacing: clamp(0.04em, 0.25vw, 0.06em);
+
   text-transform: uppercase;
   color: var(--color-carbon);
   text-decoration: none;
 }
 
-.site-nav--custom .page-link:hover {
-  opacity: 0.75;
+.site-nav--custom .page-link:hover{ opacity: .75; }
+
+/* Optional: tighten a bit sooner before your mobile breakpoint */
+@media (max-width: 1800px){
+  .site-header__inner{
+    padding: clamp(16px, 2.5vw, 28px) clamp(14px, 3.5vw, 40px);
+  }
+
+  .site-nav--custom .trigger{
+    gap: clamp(12px, 2.4vw, 28px);
+  }
 }
 
-.site-header__inner > .site-nav--custom {
-  margin-left: auto;
-}
+/* Your existing mobile breakpoint can stay as-is (nav hidden, hamburger shown) */
 
+
+
+// .site-header{
+//   position: relative; /* keeps layout the same, creates stacking context */
+//   z-index: 2000;
+//   background: #fff;   /* ensures it doesn't look transparent over the photo */
+// }
+
+// .site-header--custom {
+//   border: 0;
+//   background: #fff;
+
+//   overflow: visible;
+// }
+
+// .site-header__inner {
+//   max-width: none;                /* optional: allow wider header */
+//   display: flex;
+//   align-items: center;
+//   justify-content: space-between;
+//   padding: 34px 56px;    
+//   gap: 24px;         /* height/whitespace like reference */
+// }
+
+// .site-nav--custom .trigger {
+//   display: flex;
+//   gap: 48px;                      /* wide spacing like reference */
+//   align-items: center;
+// }
+
+// .site-nav--custom .page-link {
+//   font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+//   font-weight: 400;
+//   font-size: 80%;
+//   letter-spacing: 0.06em;
+//   text-transform: uppercase;
+//   color: var(--color-carbon);
+//   text-decoration: none;
+// }
+
+// .site-nav--custom .page-link:hover {
+//   opacity: 0.75;
+// }
+
+// .site-header__inner > .site-nav--custom {
+//   margin-left: auto;
+// }
+
+// @media (max-width: 960px){
+//   .site-header__inner{
+//     padding: 22px 28px;
+//   }
+// }
+
+// @media (max-width: 720px){
+//   .site-header__inner{
+//     padding: 16px 18px;
+//   }
+// }
 
 /* Landing-only header behavior */
 body.landing .site-header {
@@ -179,7 +277,7 @@ html.menu-open body {
 }
 
 /* Responsive switch */
-@media (max-width: 860px) {
+@media (max-width: 950px) {
   .site-nav--custom { display: none; }
   .nav-toggle { display: inline-block; }
   .mobile-menu { display: flex; }
@@ -191,5 +289,5 @@ html.menu-open body {
   width: 100vw;
   margin-left: calc(50% - 50vw);
   margin-right: calc(50% - 50vw);
-  margin-top: 2vw;
+  margin-top: 3vw;
 }

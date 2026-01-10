@@ -88,7 +88,7 @@ services:
 packages:
   pkg_full_detail:
     name: "&quotCars & Coffee&quot"
-    focus: Full Exterior + Interior Detail
+    focus: Full Detail
     pricing:
       small: 250
       mid: 300
@@ -112,8 +112,13 @@ packages:
 
 vehicle_sizes:
   - key: small
-    label: coupe / sedan
+    label: Small
+    description: Coupe · Sedan
+
   - key: mid
-    label: SUV (2-row)
+    label: Mid-Size
+    description: Wagon · 2-Row SUV
+
   - key: large
-    label: SUV (3-row) / truck
+    label: Large
+    description: 3-Row SUV · Truck

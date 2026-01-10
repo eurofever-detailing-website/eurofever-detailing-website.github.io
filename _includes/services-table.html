@@ -1,27 +1,47 @@
 {% assign svc = site.data.services %}
 {% assign items = svc.services %}
+{% assign sizes = svc.vehicle_sizes %}
 
-<section class="serviceComparisons">
-  <div class="serviceComparisons__wrap">
+<section class="servicesIntroPanel">
+  <div class="servicesIntroPanel__inner">
 
-  {% assign svc = site.data.services %}
+    <span class="servicesIntroPanel__eyebrow">SERVICES</span>
 
-  <div class="serviceComparisons__controls" role="group" aria-label="Vehicle size selector">
-    <h2 class="serviceComparisons__controlsTitle">
-      Select your vehicle type
+    <h2 class="servicesIntroPanel__title">
+      From daily drivers<br>
+      to weekend cars
     </h2>
 
+    <p class="servicesIntroPanel__lead">
+      Choose the level of care that fits your vehicle.<br>
+      Pricing updates based on size.
+    </p>
+
+  <div class="serviceComparisons__wrap">
+
+  <div class="serviceComparisons__controls" role="group" aria-label="Vehicle size selector">
+
     <div class="serviceComparisons__seg" data-vehicle-toggle>
-      {% for v in svc.vehicle_sizes %}
+
+      {% for size in sizes %}
         <button
           type="button"
-          class="serviceComparisons__segBtn{% if v.key == 'small' %} is-active{% endif %}"
-          data-size="{{ v.key }}">
-          {{ v.label }}
+          class="serviceComparisons__segBtn{% if forloop.first %} is-active{% endif %}"
+          data-size="{{ size.key }}">
+
+          <span class="segBtn__label">{{ size.label }}</span>
+          <span class="segBtn__desc">{{ size.description }}</span>
+
         </button>
       {% endfor %}
+
     </div>
   </div>
+
+  </div>
+</section>
+
+<section class="serviceComparisons">
 
     <div class="serviceComparisons__scroll" role="region" aria-label="Services comparison table" tabindex="0">
       <table class="serviceComparisons__table" role="table">
@@ -124,26 +144,6 @@
             </tr>
           {% endfor %}
         </tbody>
-
-        <tfoot>
-          <tr class="serviceComparisons__ctaRow">
-            <th class="serviceComparisons__feature serviceComparisons__ctaSpacer" scope="row">
-              <!-- empty spacer cell under the feature column -->
-            </th>
-
-            <td class="serviceComparisons__cell serviceComparisons__ctaCell">
-              <a class="serviceComparisons__btn" href="#" aria-label="Book Full Detail">Book now</a>
-            </td>
-
-            <td class="serviceComparisons__cell serviceComparisons__ctaCell">
-              <a class="serviceComparisons__btn" href="#" aria-label="Book Exterior Only">Book now</a>
-            </td>
-
-            <td class="serviceComparisons__cell serviceComparisons__ctaCell">
-              <a class="serviceComparisons__btn" href="#" aria-label="Book Interior Only">Book now</a>
-            </td>
-          </tr>
-        </tfoot>
 
       </table>
     </div>
