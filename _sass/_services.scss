@@ -4,8 +4,11 @@
 
 .servicesIntroPanel{
   position: relative;
-  background-image: url('/assets/photos/services-intro-foam.jpg');
+
+  background-image: url('/assets/photos/services-intro-foam-anthracite.png');
+  // background-image: url('/assets/photos/services-intro-foam.jpg');
   // background-image: url('/assets/photos/services-intro-donnie.jpg');
+
   background-size: cover;
   background-position: center;
   padding: clamp(36px, 5vw, 64px) 16px clamp(28px, 4vw, 44px);  
@@ -20,7 +23,7 @@
   position:absolute;
   inset:0;
   z-index: -1;
-  background: rgba(255, 255, 255, 0.6);
+  background: rgba(255, 255, 255, 0.5);
   pointer-events:none;
 }
 
@@ -206,7 +209,7 @@
 
 /* Table layout */
 .serviceComparisons__table{
-  width: 95%; 
+  max-width: 900px;
   background: transparent;
   border-collapse: collapse;
   table-layout: fixed; /* forces columns to share space */
@@ -261,13 +264,6 @@
   height: 1px;
   box-shadow: 0 2px 0 rgba(0,0,0,.08);
 }
-
-// /* First column (feature names) */
-// .serviceComparisons__th--feature,
-// .serviceComparisons__feature{
-//   width: 30%;
-//   min-width: 280px;
-// }
 
 /* Highlight ONLY Full Exterior + Interior column (2nd column) */
 .serviceComparisons__table thead th:nth-child(2),
@@ -343,8 +339,6 @@
   line-height: 1.25;
   overflow-wrap: anywhere;
 }
-
-
 
 .feature__toggle{
   font-size: 12px;
@@ -454,19 +448,6 @@
   .serviceComparisons__scroll{
     overflow-x: hidden;
   }
-
-  // /* Make the feature column narrower */
-  // .serviceComparisons__th--feature,
-  // .serviceComparisons__feature{
-  //   width: 10%;
-  //   min-width: 0;
-  // }
-
-  // /* Plan columns share remaining space evenly */
-  // .serviceComparisons__table thead th:not(.serviceComparisons__th--feature),
-  // .serviceComparisons__table tbody td{
-  //   width: calc(90% / 3);
-  // }
 
   /* Tighten cell spacing */
   .serviceComparisons__th,

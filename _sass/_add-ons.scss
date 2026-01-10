@@ -65,7 +65,7 @@
   font-weight: 500;
   font-style: italic;
   color: rgba(0,0,0,.55);
-  font-size: 14px;
+  font-size: clamp(11.5px, 1.5vw, 14px);
   line-height: 1.45;
 }
 
