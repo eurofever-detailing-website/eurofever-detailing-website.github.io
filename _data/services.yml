@@ -8,7 +8,7 @@ services:
   - name: Foam Cannon Wash
     description: Thick, lubricating foam to lift dirt and minimize paint marring
     pkg_full_detail: true
-    pkg_exterior: null
+    pkg_exterior: true
     pkg_interior: null
 
   - name: Contact Wash
@@ -34,11 +34,17 @@ services:
   - name: Tire Dressing
     description: Matte, non-greasy finish
     pkg_full_detail: true
-    pkg_exterior: "Optional add-on"
+    pkg_exterior: true
     pkg_interior: null
 
   - name: Exterior Glass
     description: Streak-free finish
+    pkg_full_detail: true
+    pkg_exterior: true
+    pkg_interior: null
+
+  - name: Hand Dry Finish
+    description: Careful microfiber drying to prevent marring and water spots
     pkg_full_detail: true
     pkg_exterior: true
     pkg_interior: null
@@ -48,12 +54,6 @@ services:
     pkg_full_detail: true
     pkg_exterior: true
     pkg_interior: true
-
-  - name: Hand Dry Finish
-    description: Careful microfiber drying to prevent marring and water spots
-    pkg_full_detail: true
-    pkg_exterior: true
-    pkg_interior: null
 
   - name: Interior Vacuum
     description: Thorough two-step vacuuming of carpets, seats, and cargo areas
@@ -65,7 +65,7 @@ services:
     description: Shampoo and agitation for a refreshed, factory-like finish
     pkg_full_detail: true
     pkg_exterior: null
-    pkg_interior: "Optional add-on"
+    pkg_interior: true
 
   - name: Interior Surface Cleaning
     description: Cleaning of all interior surfaces
@@ -89,11 +89,31 @@ packages:
   pkg_full_detail:
     name: "&quotCars & Coffee&quot"
     focus: Full Exterior + Interior Detail
+    pricing:
+      small: 250
+      mid: 300
+      large: 350
 
   pkg_exterior:
     name: "&quotTrack-ready&quot"
     focus: Exterior Only
+    pricing:
+      small: 100
+      mid: 150
+      large: 225
 
   pkg_interior:
     name: "&quotDate Night&quot"
     focus: Interior Only
+    pricing:
+      small: 125
+      mid: 175
+      large: 225
+
+vehicle_sizes:
+  - key: small
+    label: coupe / sedan
+  - key: mid
+    label: SUV (2-row)
+  - key: large
+    label: SUV (3-row) / truck

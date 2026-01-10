@@ -7,8 +7,8 @@ add_ons:
     description: Anti-static UV protectant for non-touch interior plastics
     price: 25
 
-  - name: Deep Carpet Cleaning
-    description: Shampoo and agitation for a refreshed, factory-like finish
+  - name: Pet Hair Removal
+    description: 
     price: XXX
 
   - name: Leather Treatment
@@ -22,10 +22,6 @@ add_ons:
   - name: Undercarriage Spray
     description: Rinse treatment to remove undercarriage road grime
     price: 30
-
-  - name: Tire Dressing
-    description: Matte, non-greasy finish
-    price: XXX
 
   - name: Paint Decontamination
     description: Removal of embedded contaminants to prep paint surfaces

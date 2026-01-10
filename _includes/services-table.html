@@ -4,23 +4,66 @@
 <section class="serviceComparisons">
   <div class="serviceComparisons__wrap">
 
+  {% assign svc = site.data.services %}
+
+  <div class="serviceComparisons__controls" role="group" aria-label="Vehicle size selector">
+    <h2 class="serviceComparisons__controlsTitle">
+      Select your vehicle type
+    </h2>
+
+    <div class="serviceComparisons__seg" data-vehicle-toggle>
+      {% for v in svc.vehicle_sizes %}
+        <button
+          type="button"
+          class="serviceComparisons__segBtn{% if v.key == 'small' %} is-active{% endif %}"
+          data-size="{{ v.key }}">
+          {{ v.label }}
+        </button>
+      {% endfor %}
+    </div>
+  </div>
+
     <div class="serviceComparisons__scroll" role="region" aria-label="Services comparison table" tabindex="0">
       <table class="serviceComparisons__table" role="table">
         <thead>
           <tr>
             <th class="serviceComparisons__th serviceComparisons__th--feature"> </th>
 
-            <th class="serviceComparisons__th">
-              <div class="plan">
+            <th class="serviceComparisons__th serviceComparisons__th--highlight">
+              <div class="plan plan--highlight">
                 <div class="plan__name">{{ svc.packages.pkg_full_detail.name }}</div>
                 <div class="plan__sub">{{ svc.packages.pkg_full_detail.focus }}</div>
+
+                <div class="plan__price" data-price="pkg_full_detail">
+                  <span class="plan__priceVal" data-size="small">
+                    ${{ svc.packages.pkg_full_detail.pricing.small }}
+                  </span>
+                  <span class="plan__priceVal" data-size="mid" >
+                    ${{ svc.packages.pkg_full_detail.pricing.mid }}
+                  </span>
+                  <span class="plan__priceVal" data-size="large" >
+                    ${{ svc.packages.pkg_full_detail.pricing.large }}
+                  </span>
+                </div>
               </div>
             </th>
 
-            <th class="serviceComparisons__th serviceComparisons__th--highlight">
-              <div class="plan plan--highlight">
+            <th class="serviceComparisons__th">
+              <div class="plan">
                 <div class="plan__name">{{ svc.packages.pkg_exterior.name }}</div>
                 <div class="plan__sub">{{ svc.packages.pkg_exterior.focus }}</div>
+
+                <div class="plan__price" data-price="pkg_exterior">
+                  <span class="plan__priceVal" data-size="small">
+                    ${{ svc.packages.pkg_exterior.pricing.small }}
+                  </span>
+                  <span class="plan__priceVal" data-size="mid" >
+                    ${{ svc.packages.pkg_exterior.pricing.mid }}
+                  </span>
+                  <span class="plan__priceVal" data-size="large" >
+                    ${{ svc.packages.pkg_exterior.pricing.large }}
+                  </span>
+                </div>
               </div>
             </th>
 
@@ -28,10 +71,23 @@
               <div class="plan">
                 <div class="plan__name">{{ svc.packages.pkg_interior.name }}</div>
                 <div class="plan__sub">{{ svc.packages.pkg_interior.focus }}</div>
+
+                <div class="plan__price" data-price="pkg_interior">
+                  <span class="plan__priceVal" data-size="small">
+                    ${{ svc.packages.pkg_interior.pricing.small }}
+                  </span>
+                  <span class="plan__priceVal" data-size="mid" >
+                    ${{ svc.packages.pkg_interior.pricing.mid }}
+                  </span>
+                  <span class="plan__priceVal" data-size="large" >
+                    ${{ svc.packages.pkg_interior.pricing.large }}
+                  </span>
+                </div>
               </div>
             </th>
           </tr>
         </thead>
+
 
         <tbody>
           {% assign current_group = "" %}
@@ -50,12 +106,16 @@
 
             <tr class="serviceComparisons__row">
               <th class="serviceComparisons__feature" scope="row">
-                <div class="feature">
-                  <div class="feature__name">{{ item.name }}</div>
+                <details class="feature">
+                  <summary class="feature__summary">
+                    <span class="feature__name">{{ item.name }}</span>
+                    <span class="feature__toggle"></span>
+                  </summary>
+
                   {% if item.description %}
                     <div class="feature__desc">{{ item.description }}</div>
                   {% endif %}
-                </div>
+                </details>
               </th>
 
               <td class="serviceComparisons__cell">{% include services-cell.html val=item.pkg_full_detail %}</td>
@@ -90,3 +150,29 @@
 
   </div>
 </section>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const section = document.querySelector('.serviceComparisons');
+  const toggle = document.querySelector('[data-vehicle-toggle]');
+  if (!section || !toggle) return;
+
+  const buttons = toggle.querySelectorAll('[data-size]');
+
+  function setSize(size){
+    section.setAttribute('data-active-size', size);
+    buttons.forEach(btn =>
+      btn.classList.toggle('is-active', btn.dataset.size === size)
+    );
+  }
+
+  // default
+  setSize('small');
+
+  buttons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      setSize(btn.dataset.size);
+    });
+  });
+});
+</script>
