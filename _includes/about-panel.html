@@ -4,7 +4,7 @@
       <h2 class="aboutpanel__title">{{ site.data.about.title }}</h2>
 
       <div class="aboutpanel__text">
-        <p>{{ site.data.about.body }}</p>
+        <p>{{ site.data.about.body | | markdownify }}</p>
         <p class="aboutpanel__sig">— {{ site.data.about.signature }}</p>
       </div>
     </div>

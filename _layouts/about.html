@@ -10,7 +10,7 @@ layout: default
 
         <div class="aboutpanel__text">
           <p>
-            {{ site.data.about.body }}
+            {{ site.data.about.body | markdownify}}
           </p>
 
           <p class="aboutpanel__sig">— {{ site.data.about.signature }}</p>

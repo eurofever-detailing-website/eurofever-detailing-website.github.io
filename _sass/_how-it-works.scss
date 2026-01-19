@@ -1,0 +1,186 @@
+/* ===== How It Works (timeline) ===== */
+
+.howitworks{
+  background: #fafafa6a;
+  color: var(--color-carbon);
+  padding: clamp(56px, 7vw, 96px) 0;
+}
+
+.howitworks__wrap{
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 0 clamp(20px, 4vw, 44px);
+}
+
+.howitworks__head{
+  text-align: center;
+  margin-bottom: clamp(28px, 4vw, 44px);
+}
+
+.howitworks__title{
+  font-family: var(--font-brand, Inter, system-ui, sans-serif);
+  font-weight: 600;
+  font-size: 12.5px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin: 0 0 10px;
+}
+
+.howitworks__subtitle{
+  font-family: var(Inter, system-ui, sans-serif);
+  margin: 6px;
+  font-weight: 300;
+  font-size: 18px;
+}
+
+.howitworks__timeline{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+
+/* vertical line */
+.howitworks__timeline::before{
+  content:"";
+  position: absolute;
+  left: 18px;
+  top: 8px;
+  bottom: 8px;
+  width: 1px;
+  background: rgba(0,0,0,0.12);
+}
+
+.howitworks__item{
+  display: grid;
+  grid-template-columns: 36px 1fr;
+  gap: 16px;
+  padding: 18px 0;
+  position: relative;
+}
+
+
+/* ===== How It Works: hover-only dot emphasis ===== */
+
+.howitworks__dot{
+  margin-top: 6px;
+  margin-left: 12px; /* centers dot on the line */
+  box-shadow: 0 0 0 6px rgba(0,0,0,0.06);
+
+  width: 12px;
+  height: 12px;
+  border-radius: 999px;
+  background: rgb(154, 154, 154); 
+  transform: scale(0.92);
+
+  transition:
+    opacity 180ms ease,
+    transform 180ms ease,
+    background 180ms ease;
+}
+
+/* When hovering the entire timeline item */
+@media (hover: hover){
+  .howitworks__item:hover .howitworks__dot{
+    background: var(--color-carbon);
+    transform: scale(1.05);
+  }
+}
+
+@media (hover: none){
+  .howitworks__dot{
+    background: var(--color-carbon);
+    transform: none;
+    box-shadow: none;
+  }
+}
+
+/* Mobile spacing */
+@media (max-width: 520px){
+  .howitworks__wrap{ 
+    margin-left: 5%; 
+    margin-right: 10%; 
+  }
+  .howitworks__timeline::before{ left: 14px; }
+  .howitworks__item{ grid-template-columns: 30px 1fr; }
+  .howitworks__dot{ margin-left: 8px; }
+}
+
+.howitworks__h{
+  margin: 0 0 6px;
+  font-family: var(Inter, system-ui, sans-serif);
+  font-weight: 700;
+  font-size: 18px;
+}
+
+// paragraph text
+.howitworks__p,
+.howitworks__lead,
+.howitworks__meta,
+.howitworks__meta-title,
+.howitworks__faq summary{
+  margin: 0 0 10px;
+  font-family: var(Inter, system-ui, sans-serif);
+  line-height: 1.55;
+  font-size: 14px;
+  color: var(--color-carbon);
+}
+
+/* Book CTA button */
+.howitworks__cta{
+  margin: 8px 0 16px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: clamp(12px, 2vw, 18px);
+
+  border-radius: 999px;
+  border: 2px solid rgba(89, 103, 123, 0.5);
+  background: transparent;
+
+  color: #fff;
+  font-weight: 700;
+  font-size: 18px;
+
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.howitworks__cta:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 5px 5px rgba(0,0,0,0.25);
+}
+
+/* Mobile: make CTA full-width for easy tapping */
+@media (max-width: 640px){
+  .howitworks__cta{
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+
+/* FAQ links */
+.howitworks__faq a{
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.howitworks__faq a:hover{ opacity: 0.7; }
+
+/* FAQ accordions */
+.howitworks__faq{
+  margin-top: 12px;
+  padding: 12px 14px;
+  background: rgba(0,0,0,0.02);
+  border-radius: 14px;
+}
+
+.howitworks__faq summary{
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.howitworks__p--muted{
+  color: rgba(0,0,0,0.8);
+}

@@ -1,5 +1,5 @@
 ---
-layout: fullbleed
+layout: testimonials
 title: Testimonials
 permalink: /testimonials/
 ---

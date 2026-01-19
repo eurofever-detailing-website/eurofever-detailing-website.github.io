@@ -1,37 +1,46 @@
 add_ons:
   - name: Steam Disinfection Clean
-    description: Steam sanitization to eliminate bacteria
+    description: Steam sanitization to eliminate bacteria in the cabin
     price: 50
+    duration: 20 min
 
   - name: Interior Surface Sealant
     description: Anti-static UV protectant for non-touch interior plastics
-    price: 25
+    price: 35
+    duration: 15 min
 
   - name: Pet Hair Removal
-    description: 
-    price: XXX
+    description: Removal of pet hair from carpets and upholstery
+    price: 35
+    duration: 1 hr
 
-  - name: Leather Treatment
-    description: Gentle leather cleaning that removes oils, preserving a supple and matte finish
-    price: XXX
+  # - name: Leather Treatment
+  #   description: Gentle leather cleaning that removes oils, preserving a supple and matte finish
+  #   price: XXX
+  #   duration: 
 
   - name: Engine Bay Clean
     description: Light engine bay cleaning to remove surface grime
     price: 50
+    duration: 0.5 hr
 
   - name: Undercarriage Spray
     description: Rinse treatment to remove undercarriage road grime
     price: 30
+    duration: 10 min
 
   - name: Clay Bar Decontamination
     description: Removal of embedded contaminants from clear coat
     price: 50
+    duration: 0.5 hr
 
   - name: Paint Sealant Protection
     description: Synthetic sealant for enhanced gloss and short-term protection
-    price: 50
+    price: 35
+    duration: NA
 
-  - name: One-Step Paint Correction (with Sealant)
-    description: Single-stage polish to improve gloss and reduce light defects 
-    note: Requires clay bar decontamination
-    price: 150
+  # - name: One-Step Paint Correction (with Sealant)
+  #   description: Single-stage polish to improve gloss and reduce light defects 
+  #   note: Requires clay bar decontamination
+  #   price: 150
+  #   duration: 3

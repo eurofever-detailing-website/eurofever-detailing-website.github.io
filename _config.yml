@@ -20,15 +20,21 @@
 
 title: EUROFEVER DETAILING
 email: eurofeverdetailing@gmail.com
-description: >- # this means to ignore newlines until "baseurl:"
-  Write an awesome description for your new site here. You can edit this
-  line in _config.yml. It will appear in your document head meta (for
-  Google search results) and in your feed.xml site description.
+description: >-   
+  Eurofever Detailing is an owner-operated automotive detailing studio based in South Austin, 
+  specializing in long-term vehicle care, maintenance, and preservation. 
+  From daily drivers to enthusiast-owned cars, every service is designed with transparency, 
+  consistency, and attention to detail.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 instagram_username: eurofeverdetailing
-youtube_username: "@eurofeverautodetail"
-
+youtube_username: eurofeverdetail
+booking_link: https://book.squareup.com/appointments/tbmbrriui9zuy6/location/LMFW4DYGFWTWJ/services
+deposit_amt: 50
+days: Mon · Tue · Thu · Fri · Sat
+hours: 8:00am–6:00pm
+location: https://maps.app.goo.gl/nbLzkF1amdqP8nKX7
+phone: 5123487242
 header_pages:
   - pages/about.md
   - pages/services.md

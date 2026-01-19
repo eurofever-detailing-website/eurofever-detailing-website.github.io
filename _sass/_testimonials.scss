@@ -1,0 +1,82 @@
+/* =========================================================
+   TESTIMONIALS PAGE
+   ========================================================= */
+
+.testimonialsIntroPanel{
+  position: relative;
+
+  background-image: url('/assets/photos/services-intro-foam-anthracite.png');
+
+  background-size: cover;
+  background-position: center;
+  padding: clamp(36px, 5vw, 64px) 16px clamp(28px, 4vw, 44px);  
+  text-align: center;
+  overflow: hidden;
+  z-index: 0;
+}
+
+/* soft “wash” so text stays readable */
+.testimonialsIntroPanel::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index: -1;
+  background: rgba(255, 255, 255, 0.5);
+  pointer-events:none;
+}
+
+/* fade to white at the bottom */
+.testimonialsIntroPanel::after{
+  content:"";
+  position:absolute;
+  left:0; right:0; bottom:0;
+  height: 200px; /* adjust 100–200px */
+  background: linear-gradient(to bottom,
+    rgba(255,255,255,0),
+    rgba(255,255,255,1)
+  );
+  pointer-events:none;
+  z-index: -1;
+}
+
+.testimonialsIntroPanel__inner{
+  position: relative;
+  z-index: 1;
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+.testimonialsIntroPanel__eyebrow{
+  font-family: var(--font-brand);
+  letter-spacing: .08em;
+  font-size: 12.5px;
+  color: #050505;
+  margin-bottom: 18px;
+  display: block;
+  text-transform: uppercase;
+}
+
+.testimonialsIntroPanel__title{
+  margin: 0 0 20px;
+  font-family: "Inter", system-ui, sans-serif;
+  font-weight: 700;
+  font-size: clamp(28px, 5vw, 48px);
+  line-height: 1.05;
+  color: var(--color-carbon);
+  text-transform: none;
+}
+
+// .testimonialsIntroPanel__lead{
+//   margin-bottom: 40px;
+//   font-family: "Inter", system-ui, sans-serif;
+//   font-size: clamp(14px, 2vw, 18px);
+//   line-height: 1.35;
+//   color: #050505;
+// }
+
+.testimonialsWidget{
+  background: #fff;
+}
+.sk-ww-google-reviews{
+  margin: 80px;
+}
