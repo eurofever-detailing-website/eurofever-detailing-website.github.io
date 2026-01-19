@@ -83,7 +83,7 @@ services:
     description: Gentle leather cleaning that removes oils, preserving a supple and matte finish
     pkg_full_detail: true
     pkg_exterior: null
-    pkg_interior: "Optional add-on"
+    pkg_interior: true
 
 packages:
   pkg_full_detail:
@@ -91,24 +91,36 @@ packages:
     focus: Full Detail
     pricing:
       small: 250
-      mid: 300
-      large: 350
+      mid: 325
+      large: 375
+    duration:
+      small: 4 hr 
+      mid: 5 hr
+      large: 6 hr
 
   pkg_exterior:
     name: "&quotTrack-ready&quot"
     focus: Exterior Only
     pricing:
       small: 100
-      mid: 150
-      large: 225
+      mid: 125
+      large: 150
+    duration:
+      small: 2 hr
+      mid: 2.5 hr
+      large: 2.5 hr
 
   pkg_interior:
     name: "&quotDate Night&quot"
     focus: Interior Only
     pricing:
-      small: 125
-      mid: 175
+      small: 150
+      mid: 200
       large: 225
+    duration:
+      small: 2 hr 
+      mid: 2.5 hr
+      large: 3.5 hr
 
 vehicle_sizes:
   - key: small
