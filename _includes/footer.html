@@ -1,0 +1,77 @@
+<footer class="site-footer footer4" role="contentinfo">
+  <div class="footer4__wrap">
+
+    <!-- 1) Brand / SEO / Map -->
+    <div class="footer4__col footer4__col--brand">
+      <div class="footer4__brand">EUROFEVER DETAILING</div>
+
+      <p class="footer4__desc">
+        Owner-operated detailing studio in South Austin specializing in long-term vehicle care,
+        maintenance, and preservation for enthusiasts and daily drivers.
+      </p>
+
+      <!-- Option A: simple address link (lightweight + reliable)
+      <a class="footer4__mapLink"
+         href="https://www.google.com/maps/search/?api=1&query=Eurofever+Detailing"
+         target="_blank" rel="noopener">
+        South Austin, TX →
+      </a> -->
+
+      <!-- Option B: If you really want an embedded map, use an iframe (heavier): -->
+      <div class="footer4__map">
+        <iframe
+          title="Eurofever Detailing — South Austin"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          src="https://www.google.com/maps?q=Eurofever+Detailing&output=embed">
+        </iframe>
+      </div>
+     
+    </div>
+
+    <!-- 2) Explore -->
+    <nav class="footer4__col footer4__col--nav" aria-label="Explore">
+      <div class="footer4__heading">Explore</div>
+      <ul class="footer4__list">
+        <li><a class="footer4__link" href="{{ '/about/' | relative_url }}">About</a></li>
+        <li><a class="footer4__link" href="{{ '/services/' | relative_url }}">Services</a></li>
+        <li><a class="footer4__link" href="{{ '/gallery/' | relative_url }}">Gallery</a></li>
+        <li><a class="footer4__link" href="{{ '/testimonials/' | relative_url }}">Testimonials</a></li>
+        <li><a class="footer4__link" href="{{ '/contact/' | relative_url }}">Contact</a></li>
+      </ul>
+    </nav>
+
+    <!-- 3) Socials -->
+    <div class="footer4__col footer4__col--social">
+      <div class="footer4__heading">Socials</div>
+      <ul class="footer4__list">
+        <li><a class="footer4__link" href="https://instagram.com/{{ site.instagram_username }}" target="_blank" rel="noopener">Instagram</a></li>
+        <li><a class="footer4__link" href="https://youtube.com/@{{ site.youtube_username }}" target="_blank" rel="noopener">YouTube</a></li>
+        <li><a class="footer4__link" href="mailto:{{ site.email }}">Email</a></li>
+      </ul>
+    </div>
+
+    <!-- 4) CTA -->
+    <div class="footer4__col footer4__col--cta">
+      <div class="footer4__heading">Ready to book?</div>
+      <!-- <p class="footer4__ctaText">
+        Pick a time that works for you — studio-based in South Austin.
+      </p> -->
+
+      <a class="footer4__btn" href="{{ site.booking_link }}" target="_blank" rel="noopener">
+        Book an appointment →
+      </a>
+
+      <div class="footer4__heading">Hours</div>
+      <p class="footer4__hoursText">
+        {{ site.days }}<br>
+        {{ site.hours }}
+      </p>
+    </div>
+
+  </div>
+
+  <div class="footer4__bottom">
+    <span>© {{ site.time | date: "%Y" }} {{ site.title }}. All rights reserved.</span>
+  </div>
+</footer>

@@ -16,3 +16,12 @@ h1,
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
+
+a {
+  color: var(--color-carbon);
+  text-decoration: none;
+
+  &:visited {
+    color: var(--color-carbon);
+  }
+}
