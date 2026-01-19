@@ -1,5 +1,5 @@
 ---
-layout: fullbleed
+layout: gallery
 title: Gallery
 permalink: /gallery/
 ---

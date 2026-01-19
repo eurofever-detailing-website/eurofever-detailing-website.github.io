@@ -1,0 +1,46 @@
+{% assign gallery_title = include.title | default: "Detailing Journal" %}
+{% assign gallery_kicker = include.kicker | default: "Gallery" %}
+{% assign gallery_intro = include.intro | default: "Stories, finishes, and transformations from the bay." %}
+
+<section class="post-gallery" aria-label="{{ gallery_title | escape }}">
+  <div class="post-gallery__surface">
+    <div class="post-gallery__intro">
+      <p class="post-gallery__kicker">{{ gallery_kicker }}</p>
+      <h1 class="post-gallery__title">{{ gallery_title }}</h1>
+      <p class="post-gallery__subtitle">{{ gallery_intro }}</p>
+    </div>
+
+    {% if site.posts.size == 0 %}
+      <p class="post-gallery__empty">No posts yet. Check back soon.</p>
+    {% else %}
+      <div class="post-gallery__grid" role="list">
+        {% for post in site.posts %}
+          {% assign cover = post.image | default: post.cover | default: post.thumbnail | default: post.hero %}
+          <article class="post-card" role="listitem">
+            <a class="post-card__link" href="{{ post.url | relative_url }}">
+              {% if cover %}
+                <div class="post-card__media">
+                  <img src="{{ cover | relative_url }}" alt="{{ post.title | escape }}">
+                </div>
+              {% endif %}
+              <div class="post-card__body">
+                <p class="post-card__meta">
+                  <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%b %d, %Y" }}</time>
+                  {% if post.categories %}
+                    <span aria-hidden="true">·</span>
+                    <span class="post-card__categories">{{ post.categories | join: ", " }}</span>
+                  {% endif %}
+                </p>
+                <h2 class="post-card__title">{{ post.title }}</h2>
+                {% if post.excerpt %}
+                  <p class="post-card__excerpt">{{ post.excerpt | strip_html | truncate: 160 }}</p>
+                {% endif %}
+                <span class="post-card__cta">Read story</span>
+              </div>
+            </a>
+          </article>
+        {% endfor %}
+      </div>
+    {% endif %}
+  </div>
+</section>

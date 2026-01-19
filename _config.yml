@@ -41,6 +41,7 @@ header_pages:
   - pages/gallery.md
   - pages/testimonials.md
   - pages/contact.md
+  - pages/blog.md
 
 palette:
   carbon: "#050505"
