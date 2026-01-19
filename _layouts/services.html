@@ -9,8 +9,10 @@ layout: default
 
     <main class="layout-services">
       {{ content }}
+      {%- include how-it-works-panel.html -%}
       {% include services-table.html %}
-      {% include add-ons-tiles.html %}
+      {% include add-ons.html %}
+      {% include book-now.html %}
     </main>
 
   </body>

@@ -251,7 +251,7 @@
 
 /* Give header a consistent height so prices can bottom-align */
 .serviceComparisons__table thead th.serviceComparisons__th{
-  height: clamp(120px, 18vw, 200px);
+  // height: clamp(120px, 18vw, 200px);
   vertical-align: top;
   padding-bottom: 20px;
 }
@@ -296,7 +296,7 @@
 
 /* Price: bottom aligned within header plan */
 .plan__price{
-  margin-top: auto;         /* pushes to bottom */
+  margin-top: 0;         
   padding-top: 12px;        /* breathing room */
   font-weight: 800;
   font-size: clamp(24px, 3vw, 36px);
@@ -313,6 +313,46 @@
 .serviceComparisons[data-active-size="mid"]   .plan__priceVal[data-size="mid"],
 .serviceComparisons[data-active-size="large"] .plan__priceVal[data-size="large"]{
   display: inline;
+}
+
+/* New: the price+button group gets pushed to the bottom */
+.plan__cta{
+  margin-top: auto;     /* pushes the whole group down */
+  padding-top: 12px;    /* breathing room from plan__sub */
+}
+
+/* Button style */
+.plan__bookBtn{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+
+  margin-top: 10px;
+  padding: 10px 14px;
+
+  border-radius: 999px;
+  border: 1px solid rgba(89,103,123,0.35);
+  background: rgba(255,255,255,.70);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+
+  text-decoration: none;
+  color: rgba(0,0,0,.90);
+  font-weight: 600;
+  font-size: 13px;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.plan__bookBtn:hover{
+  border-color: rgba(89,103,123,0.55);
+  background: #fff;
+}
+
+/* Optional: slightly emphasize the highlighted column's button */
+.serviceComparisons__table thead th:nth-child(2) .plan__bookBtn{
+  border-color: var(--color-anthracite);
 }
 
 /* Feature expander (works on all layouts) */
@@ -537,5 +577,63 @@
   .serviceComparisons{
     --feature-col: clamp(90px, 24vw, 160px);
     --price-size: clamp(20px, 3.8vw, 32px);
+  }
+}
+
+.bookingCta__wrap{
+  max-width: 900px;
+  margin-left: clamp(24px, 12vw, 240px);
+  margin-right: auto;
+
+  text-align: left;  text-align: center;
+}
+
+.bookingCta__text{
+  font-family: "Inter", system-ui, -apple-system, sans-serif;
+  font-size: clamp(1.5rem, 3vw, 2.25rem);
+  font-weight: 600;
+  line-height: 1.25;
+  margin-bottom: 32px;
+}
+
+.bookingCta__btn{
+  font-family: "Inter", system-ui, -apple-system, sans-serif;
+  font-size: clamp(12px, 1.5vw, 16px);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  padding: 16px 36px;
+  border-radius: 999px;
+
+  background: #fff;
+  color: var(--color-anthracite);
+  text-decoration: none;
+
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.bookingCta__btn:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+}
+.bookingCta{
+  background:
+    linear-gradient(rgba(89, 103, 123, 0.55), rgba(89, 103, 123, 0.95)),
+    url('/assets/photos/services-intro-foam-anthracite.png') center/cover no-repeat;
+
+  padding: clamp(80px, 5vw, 300px) clamp(20px, 10vw, 800px);
+  color: #fff;
+
+}
+
+@media (max-width: 600px){
+  .bookingCta__btn{
+    width: 100%;
+    max-width: 320px;
   }
 }

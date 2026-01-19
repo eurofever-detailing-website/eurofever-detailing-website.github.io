@@ -2,7 +2,7 @@
 {% assign items = svc.services %}
 {% assign sizes = svc.vehicle_sizes %}
 
-<section class="servicesIntroPanel">
+<section class="servicesIntroPanel" id="services">
   <div class="servicesIntroPanel__inner">
 
     <span class="servicesIntroPanel__eyebrow">SERVICES</span>
@@ -53,17 +53,23 @@
               <div class="plan plan--highlight">
                 <div class="plan__name">{{ svc.packages.pkg_full_detail.name }}</div>
                 <div class="plan__sub">{{ svc.packages.pkg_full_detail.focus }}</div>
-
-                <div class="plan__price" data-price="pkg_full_detail">
-                  <span class="plan__priceVal" data-size="small">
-                    ${{ svc.packages.pkg_full_detail.pricing.small }}
-                  </span>
-                  <span class="plan__priceVal" data-size="mid" >
-                    ${{ svc.packages.pkg_full_detail.pricing.mid }}
-                  </span>
-                  <span class="plan__priceVal" data-size="large" >
-                    ${{ svc.packages.pkg_full_detail.pricing.large }}
-                  </span>
+                <div class="plan__cta"></div>
+                  <div class="plan__price" data-price="pkg_full_detail">
+                    <span class="plan__priceVal" data-size="small">
+                      ${{ svc.packages.pkg_full_detail.pricing.small }}
+                    </span>
+                    <span class="plan__priceVal" data-size="mid" >
+                      ${{ svc.packages.pkg_full_detail.pricing.mid }}
+                    </span>
+                    <span class="plan__priceVal" data-size="large" >
+                      ${{ svc.packages.pkg_full_detail.pricing.large }}
+                    </span>
+                  </div>
+                  <a class="plan__bookBtn"
+                    href="{{ site.booking_link }}/OANEV6NB6ZXATKHNI6LVXZ5Y"
+                    target="_blank" rel="noopener">
+                    Book now
+                  </a>
                 </div>
               </div>
             </th>
@@ -72,17 +78,23 @@
               <div class="plan">
                 <div class="plan__name">{{ svc.packages.pkg_exterior.name }}</div>
                 <div class="plan__sub">{{ svc.packages.pkg_exterior.focus }}</div>
-
-                <div class="plan__price" data-price="pkg_exterior">
-                  <span class="plan__priceVal" data-size="small">
-                    ${{ svc.packages.pkg_exterior.pricing.small }}
-                  </span>
-                  <span class="plan__priceVal" data-size="mid" >
-                    ${{ svc.packages.pkg_exterior.pricing.mid }}
-                  </span>
-                  <span class="plan__priceVal" data-size="large" >
-                    ${{ svc.packages.pkg_exterior.pricing.large }}
-                  </span>
+                <div class="plan__cta">
+                  <div class="plan__price" data-price="pkg_exterior">
+                    <span class="plan__priceVal" data-size="small">
+                      ${{ svc.packages.pkg_exterior.pricing.small }}
+                    </span>
+                    <span class="plan__priceVal" data-size="mid" >
+                      ${{ svc.packages.pkg_exterior.pricing.mid }}
+                    </span>
+                    <span class="plan__priceVal" data-size="large" >
+                      ${{ svc.packages.pkg_exterior.pricing.large }}
+                    </span>
+                  </div>
+                  <a class="plan__bookBtn"
+                    href="{{ site.booking_link }}/YPVTGN65O2ZQB5UMI2MOMXDG"
+                    target="_blank" rel="noopener">
+                    Book now
+                  </a>  
                 </div>
               </div>
             </th>
@@ -91,17 +103,23 @@
               <div class="plan">
                 <div class="plan__name">{{ svc.packages.pkg_interior.name }}</div>
                 <div class="plan__sub">{{ svc.packages.pkg_interior.focus }}</div>
-
-                <div class="plan__price" data-price="pkg_interior">
-                  <span class="plan__priceVal" data-size="small">
-                    ${{ svc.packages.pkg_interior.pricing.small }}
-                  </span>
-                  <span class="plan__priceVal" data-size="mid" >
-                    ${{ svc.packages.pkg_interior.pricing.mid }}
-                  </span>
-                  <span class="plan__priceVal" data-size="large" >
-                    ${{ svc.packages.pkg_interior.pricing.large }}
-                  </span>
+                <div class="plan__cta">
+                  <div class="plan__price" data-price="pkg_interior">
+                    <span class="plan__priceVal" data-size="small">
+                      ${{ svc.packages.pkg_interior.pricing.small }}
+                    </span>
+                    <span class="plan__priceVal" data-size="mid" >
+                      ${{ svc.packages.pkg_interior.pricing.mid }}
+                    </span>
+                    <span class="plan__priceVal" data-size="large" >
+                      ${{ svc.packages.pkg_interior.pricing.large }}
+                    </span>
+                  </div>
+                  <a class="plan__bookBtn"
+                    href="{{ site.booking_link }}/TSJN7BAVCQBWAAIISDJIUQH7"
+                    target="_blank" rel="noopener">
+                    Book now
+                  </a>
                 </div>
               </div>
             </th>
