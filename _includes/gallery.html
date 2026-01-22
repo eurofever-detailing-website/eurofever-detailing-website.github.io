@@ -26,7 +26,7 @@
             {% assign brands = site.posts | map: "brand" | uniq | sort %}
             {% for brand in brands %}
               {% if brand %}
-                <option value="{{ brand | upcase | strip }}">{{ brand }}</option>
+                <option value="{{ brand | upcase | strip }}">{{ brand | upcase | strip }}</option>
               {% endif %}
             {% endfor %}
           </select>
