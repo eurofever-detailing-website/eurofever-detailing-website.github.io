@@ -21,6 +21,7 @@ find "$blog_root" -mindepth 1 -maxdepth 1 -type d | while read -r dir_path; do
   package="${BASH_REMATCH[2]}"
   brand="${BASH_REMATCH[3]}"
   model="${BASH_REMATCH[4]}"
+  cover_base_path="${blog_root}/$date-$package-$brand-$model/"
 
   title=""
   case "$package" in
@@ -52,7 +53,7 @@ title:  $title
 date:   $date
 brand: $brand
 model: $model
-cover: null
+cover: $cover_base_path
 ---
 EOF
 

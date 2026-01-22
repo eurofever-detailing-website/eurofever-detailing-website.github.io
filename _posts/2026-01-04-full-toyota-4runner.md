@@ -4,5 +4,5 @@ title:  Full detail
 date:   2026-01-04
 brand: toyota
 model: 4runner
-cover: DSC03869-square.jpg
+cover: /assets/blog/2026-01-04-full-toyota-4runner/DSC03869-square.jpg
 ---
