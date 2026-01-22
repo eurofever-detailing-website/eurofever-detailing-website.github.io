@@ -1,0 +1,34 @@
+---
+layout: default
+---
+
+{% assign post_file = page.name | split: "." | first %}
+{% assign post_dir = "/assets/blog/" | append: post_file | append: "/" %}
+{% assign post_images = site.static_files | where_exp: "file", "file.path contains post_dir" %}
+
+<section class="post-detail" aria-label="{{ page.title | escape }}">
+  <div class="post-detail__surface">
+    <div class="post-detail__header">
+      <div class="post-detail__heading">
+        <h2 class="post-detail__title">{{ page.title }}</h2>
+        {% if page.brand and page.model %} 
+          <h1 class="post-detail__subtitle">{{ page.brand }} • {{ page.model }}</h1>
+        {% endif %}
+      </div>
+      <a class="post-detail__back" href="{{ '/gallery' | relative_url }}">&larr; back</a>
+    </div>
+
+    {% if post_images.size > 0 %}
+      <div class="post-detail__grid" role="list">
+        {% for image in post_images %}
+          {% assign ext = image.extname | downcase %}
+          {% if ext == ".jpg" or ext == ".jpeg" or ext == ".png" or ext == ".webp" %}
+            <figure class="post-shot" role="listitem">
+              <img src="{{ image.path | relative_url }}" alt="{{ page.title | escape }}">
+            </figure>
+          {% endif %}
+        {% endfor %}
+      </div>
+    {% endif %}
+  </div>
+</section>

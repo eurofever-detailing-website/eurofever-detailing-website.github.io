@@ -1,42 +1,80 @@
-{% assign gallery_title = include.title | default: "Detailing Journal" %}
 {% assign gallery_kicker = include.kicker | default: "Gallery" %}
-{% assign gallery_intro = include.intro | default: "Stories, finishes, and transformations from the bay." %}
+{% assign gallery_question = include.question | default: "Imagining what your car<br>could look like?" %}
+{% assign gallery_title = include.title | default: gallery_question %}
+{% assign gallery_subtitle = include.subtitle | default: "Check out some of our previous work" %}
 
 <section class="post-gallery" aria-label="{{ gallery_title | escape }}">
   <div class="post-gallery__surface">
-    <div class="post-gallery__intro">
-      <p class="post-gallery__kicker">{{ gallery_kicker }}</p>
-      <h1 class="post-gallery__title">{{ gallery_title }}</h1>
-      <p class="post-gallery__subtitle">{{ gallery_intro }}</p>
-    </div>
+    <span class="post-gallery__intro">
+      <h1 class="post-gallery__kicker">{{ gallery_kicker }}</h1>
+      <h2 class="post-gallery__title">{{ gallery_question }}</h2>
+      <h3 class="post-gallery__subtitle">{{ gallery_subtitle }}</h3>
+      <div class="post-gallery__filter-panel" aria-hidden="true">
+        <label class="post-gallery__filter-field" for="gallery-filter-package">
+          detailing package
+          <select id="gallery-filter-package" class="post-gallery__select">
+            <option value="">all packages</option>
+            <option value="full detail">full detail</option>
+            <option value="exterior only">exterior only</option>
+            <option value="interior only">interior only</option>
+          </select>
+        </label>
+        <label class="post-gallery__filter-field" for="gallery-filter-brand">
+          brand
+          <select id="gallery-filter-brand" class="post-gallery__select">
+            <option value="">all brands</option>
+            {% assign brands = site.posts | map: "brand" | uniq | sort %}
+            {% for brand in brands %}
+              {% if brand %}
+                <option value="{{ brand | downcase | strip }}">{{ brand }}</option>
+              {% endif %}
+            {% endfor %}
+          </select>
+        </label>
+      </div>
+    </span>
 
     {% if site.posts.size == 0 %}
       <p class="post-gallery__empty">No posts yet. Check back soon.</p>
     {% else %}
       <div class="post-gallery__grid" role="list">
         {% for post in site.posts %}
-          {% assign cover = post.image | default: post.cover | default: post.thumbnail | default: post.hero %}
-          <article class="post-card" role="listitem">
-            <a class="post-card__link" href="{{ post.url | relative_url }}">
-              {% if cover %}
-                <div class="post-card__media">
-                  <img src="{{ cover | relative_url }}" alt="{{ post.title | escape }}">
+          {% assign cover_path = nil %}
+          {% assign post_file = post.name | split: "." | first %}
+          {% assign tile_title = post.title | default: "" %}
+          {% assign tile_key = tile_title | downcase %}
+          {% assign tile_subtitle = "" %}
+          {% case tile_key %}
+            {% when "full detail" %}
+              {% assign tile_subtitle = "Cars & Coffee" %}
+            {% when "exterior only" %}
+              {% assign tile_subtitle = "Track-ready" %}
+            {% when "interior only" %}
+              {% assign tile_subtitle = "Date Night" %}
+          {% endcase %}
+          {% if post.cover %}
+            {% assign raw_cover = post.cover %}
+            {% if raw_cover contains "/" %}
+              {% assign cover_path = raw_cover %}
+            {% else %}
+              {% assign cover_path = "/assets/blog/" | append: post_file | append: "/" | append: raw_cover %}
+            {% endif %}
+          {% else %}
+            {% assign cover_path = post.image | default: post.thumbnail | default: post.hero %}
+          {% endif %}
+          <article class="post-tile" role="listitem" data-title="{{ tile_key }}" data-brand="{{ post.brand | downcase | strip }}">
+            <a class="post-tile__link" href="{{ post.url | relative_url }}">
+              {% if cover_path %}
+                <div class="post-tile__media">
+                  <img src="{{ cover_path | relative_url }}" alt="{{ post.title | escape }}">
                 </div>
               {% endif %}
-              <div class="post-card__body">
-                <p class="post-card__meta">
-                  <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%b %d, %Y" }}</time>
-                  {% if post.categories %}
-                    <span aria-hidden="true">·</span>
-                    <span class="post-card__categories">{{ post.categories | join: ", " }}</span>
-                  {% endif %}
-                </p>
-                <h2 class="post-card__title">{{ post.title }}</h2>
-                {% if post.excerpt %}
-                  <p class="post-card__excerpt">{{ post.excerpt | strip_html | truncate: 160 }}</p>
-                {% endif %}
-                <span class="post-card__cta">Read story</span>
-              </div>
+              {% if tile_subtitle != "" %}
+                <p class="post-tile__subtitle">{{ tile_subtitle }}</p>
+              {% endif %}
+              {% if tile_title != "" %}
+                <p class="post-tile__title">{{ tile_title }}</p>
+              {% endif %}
             </a>
           </article>
         {% endfor %}
@@ -44,3 +82,5 @@
     {% endif %}
   </div>
 </section>
+
+<script src="{{ '/assets/js/gallery-filter.js' | relative_url }}" defer></script>

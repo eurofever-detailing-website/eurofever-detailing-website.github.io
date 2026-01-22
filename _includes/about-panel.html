@@ -1,7 +1,7 @@
 <section class="aboutpanel" {% unless include.no_id %}id="about"{% endunless %}>
   <div class="aboutpanel__wrap">
     <div class="aboutpanel__left">
-      <h2 class="aboutpanel__title">{{ site.data.about.title }}</h2>
+      <h1 class="aboutpanel__title">{{ site.data.about.title }}</h1>
 
       <div class="aboutpanel__text">
         <p>{{ site.data.about.body | | markdownify }}</p>
@@ -12,7 +12,7 @@
     <div class="aboutpanel__right">
       <figure class="aboutpanel__photo">
         <img
-          src="/assets/photos/about-photo.jpg"
+          src="/assets/media/about-photo.jpg"
           alt="{{ site.data.about.photo_alt }}"
         >
       </figure>

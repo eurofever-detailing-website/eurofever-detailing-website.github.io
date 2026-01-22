@@ -1,0 +1,47 @@
+.policies {
+  background: #ffffff;
+  color: var(--color-carbon);
+  padding: clamp(48px, 7vw, 96px) 0;
+}
+
+.policies__surface {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 0 clamp(30px, 4vw, 44px);
+}
+
+.policies__header {
+  text-align: center;
+  margin-bottom: clamp(24px, 4vw, 40px);
+}
+
+.policies__faq {
+  margin-top: 12px;
+  margin-left: 12px;
+  padding: 12px 24px;
+  border: 2px solid rgb(235, 235, 235);
+  border-radius: 40px;
+  box-shadow: 0 6px 12px rgba(235, 235, 235, 0.8);
+}
+
+.policies__faq summary {
+  cursor: pointer;
+  font-size: 1.15rem;
+}
+
+.policies__faq a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.policies__faq a:hover {
+  opacity: 0.7;
+}
+
+.policies__p--muted {
+  color: rgb(66, 66, 66);
+  margin-top: 12px;
+  margin-left: 16px;
+  font-weight: 300;
+}

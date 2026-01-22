@@ -8,10 +8,33 @@ title: Eurofever Detailing
     <section class="landingbrand__identity" aria-label="Eurofever Detailing">
       <h1>EUROFEVER<br>DETAILING</h1>
       <div class="tagline">car care for car enthusiasts</div>
+      <div class="landingbrand__actions">
+        <a class="landingbrand__button landingbrand__button--ghost" href="#about-panel">
+          Explore <span aria-hidden="true">↓</span>
+        </a>
+        <a class="landingbrand__button" href="{{ site.booking_link }}" target="_blank" rel="noopener">
+          Book now <span aria-hidden="true">→</span>
+        </a>
+      </div>
     </section>
+  </div>
 
-    <div class="landingbrand__spacer" aria-hidden="true"></div>
+  <div class="landingbrand__media">
+    <video autoplay muted loop playsinline controls disablePictureInPicture>
+      <source src="/assets/media/landing_video.mov" type="video/mp4">
+    </video>
   </div>
 </main>
 
-{% include about-panel.html %}
+<section id="about-panel">
+  {% include about-panel.html %}
+</section>
+
+<section id="services-panel">
+  {% include services-table.html %}
+  {% include add-ons.html %}
+  {% include how-it-works-panel.html %}
+  {% include book-now.html %}
+</section>
+
+<script src="{{ '/assets/js/landing-scroll.js' | relative_url }}" defer></script>

@@ -1,5 +1,5 @@
 ---
-layout: fullbleed
+layout: contact
 title: Contact
 permalink: /contact/
 ---

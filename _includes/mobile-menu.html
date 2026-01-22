@@ -2,6 +2,7 @@
   <button class="mobile-menu__close" type="button" aria-label="Close menu">×</button>
 
   <nav class="mobile-menu__nav" aria-label="Mobile navigation">
+    <a class="mobile-menu__link" href="{{ '/' | relative_url }}">HOME</a>
     {%- for path in site.header_pages -%}
       {%- assign my_page = site.html_pages | where: "path", path | first -%}
       {%- if my_page.title -%}

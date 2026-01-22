@@ -4,11 +4,7 @@
 
 .servicesIntroPanel{
   position: relative;
-
-  background-image: url('/assets/photos/services-intro-foam-anthracite.png');
-  // background-image: url('/assets/photos/services-intro-foam.jpg');
-  // background-image: url('/assets/photos/services-intro-donnie.jpg');
-
+  background-image: url('/assets/media/services-intro-foam-anthracite.png');
   background-size: cover;
   background-position: center;
   padding: clamp(36px, 5vw, 64px) 16px clamp(28px, 4vw, 44px);  
@@ -17,7 +13,7 @@
   z-index: 0;
 }
 
-/* soft “wash” so text stays readable */
+/* soft wash so text stays readable */
 .servicesIntroPanel::before{
   content:"";
   position:absolute;
@@ -48,43 +44,12 @@
   margin: 0 auto;
 }
 
-.servicesIntroPanel__eyebrow{
-  font-family: var(--font-brand);
-  letter-spacing: .08em;
-  font-size: 12.5px;
-  color: #050505;
-  margin-bottom: 18px;
-  display: block;
-  text-transform: uppercase;
-}
-
-.servicesIntroPanel__title{
-  margin: 0 0 20px;
-  font-family: "Inter", system-ui, sans-serif;
-  font-weight: 700;
-  font-size: clamp(28px, 5vw, 48px);
-  line-height: 1.05;
-  color: var(--color-carbon);
-  text-transform: none;
-}
-
-.servicesIntroPanel__lead{
-  margin-bottom: 40px;
-  font-family: "Inter", system-ui, sans-serif;
-  font-size: clamp(14px, 2vw, 18px);
-  line-height: 1.35;
-  color: #050505;
-}
-
-
-
 /* Base */
 .serviceComparisons{
   padding: clamp(18px, 3vw, 44px) 16px;
   font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto;
   background: #fff;
 }
-
 
 .serviceComparisons__wrap{
   width: min(70%, 1120px);
@@ -280,7 +245,7 @@
 }
 
 .plan__name{
-  font-family: "Inter", system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  font-family: var(--font--body);
   font-optical-sizing: auto;
   font-weight: 800 !important;
   font-size: clamp(18px, 2vw, 24px);
@@ -589,15 +554,16 @@
 }
 
 .bookingCta__text{
-  font-family: "Inter", system-ui, -apple-system, sans-serif;
+  font-family: var(--font--body);
   font-size: clamp(1.5rem, 3vw, 2.25rem);
   font-weight: 600;
   line-height: 1.25;
   margin-bottom: 32px;
+  color: #fff;
 }
 
 .bookingCta__btn{
-  font-family: "Inter", system-ui, -apple-system, sans-serif;
+  font-family: var(--font--body);
   font-size: clamp(12px, 1.5vw, 16px);
   font-weight: 600;
   letter-spacing: 0.02em;
@@ -624,7 +590,7 @@
 .bookingCta{
   background:
     linear-gradient(rgba(89, 103, 123, 0.55), rgba(89, 103, 123, 0.95)),
-    url('/assets/photos/services-intro-foam-anthracite.png') center/cover no-repeat;
+    url('/assets/media/services-intro-foam-anthracite.png') center/cover no-repeat;
 
   padding: clamp(80px, 5vw, 300px) clamp(20px, 10vw, 800px);
   color: #fff;

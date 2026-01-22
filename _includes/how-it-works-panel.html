@@ -2,10 +2,10 @@
   <div class="howitworks__wrap">
 
     <header class="howitworks__head">
-      <h2 class="howitworks__title">HOW IT WORKS</h2>
-      <p class="howitworks__subtitle">
+      <h2 class="howitworks__title">How it works</h2>
+      <h3 class="howitworks__subtitle">
         A straightforward process, handled with care at every step.
-      </p>
+      </h3>
     </header>
 
     <ol class="howitworks__timeline">
@@ -21,7 +21,7 @@
             Book an appointment <span aria-hidden="true">→</span>
           </a>
 
-          <p class="howitworks__lead">
+          <p class="howitworks__p">
             Choose your package, vehicle size, and add-ons. Availability and duration are shown at booking.
           </p>
 
@@ -35,7 +35,7 @@
       <li class="howitworks__item">
         <div class="howitworks__dot" aria-hidden="true"></div>
         <div class="howitworks__content">
-          <h3 class="howitworks__h">Drop-off</h3>
+          <h4 class="howitworks__h">Drop-off</h4>
           <p class="howitworks__p">
             Arrive at your scheduled time. We’ll do a quick walk-around and confirm requested services.
           </p>
@@ -51,7 +51,7 @@
       <li class="howitworks__item">
         <div class="howitworks__dot" aria-hidden="true"></div>
         <div class="howitworks__content">
-          <h3 class="howitworks__h">Detailing in progress</h3>
+          <h4 class="howitworks__h">Detailing in progress</h4>
           <p class="howitworks__p">
             We’ll text/call if anything changes. 
             Add-ons can be approved during the service.
@@ -63,7 +63,7 @@
       <li class="howitworks__item">
         <div class="howitworks__dot" aria-hidden="true"></div>
         <div class="howitworks__content">
-          <h3 class="howitworks__h">Pick-up</h3>
+          <h4 class="howitworks__h">Pick-up</h4>
           <p class="howitworks__p">
             We’ll notify you 30 minutes before it’s ready. 
             We will do a final review of the vehicle at pickup and you’re good to go.
@@ -73,69 +73,16 @@
         </div>
       </li>
 
-      <!-- FAQ -->
+      <!-- Link to FAQ page -->
       <li class="howitworks__item">
         <div class="howitworks__dot" aria-hidden="true"></div>
         <div class="howitworks__content">
-          <h3 class="howitworks__h">FAQs: Deposit, Location, Mobile, & Cancellation</h3>
-
-          <details class="howitworks__faq">
-            <summary>Where are you located?</summary>
-            <p class="howitworks__p howitworks__p--muted">
-              <a class="howitworks__u"
-                href="{{ site.location }}"
-                target="_blank"
-                rel="noopener">
-                South Austin (100 Anacua Loop, Manchaca, TX)
-              </a>
-            </p>
-          </details>
-
-          <details class="howitworks__faq">
-            <summary>What are your studio hours?</summary>
-            <p class="howitworks__p howitworks__p--muted">
-              Mon · Tue · Thu · Fri · Sat<br>
-              8:00am–6:00pm
-            </p>
-          </details>
-
-          <details class="howitworks__faq">
-            <summary>Which services are studio-only vs mobile?</summary>
-            <p class="howitworks__p howitworks__p--muted">
-              <span class="howitworks__label">Full Detail + Interior packages:</span> studio-only.
-            </p>
-            <p class="howitworks__p howitworks__p--muted">
-              <span class="howitworks__label">Exterior package:</span> studio or mobile*.
-            </p>
-            <p class="howitworks__p howitworks__p--muted">
-              <i>
-                *Mobile service available under certain conditions (water access, distance).
-                Please <a class="howitworks__u" href="mailto:{{ site.email }}">email us</a> or
-                <a class="howitworks__u" href="tel:+1{{ site.phone }}">call/text</a> to schedule mobile.
-              </i>
-            </p>
-          </details>
-
-          <details class="howitworks__faq">
-            <summary>How do I reschedule or cancel?</summary>
-            <p class="howitworks__p howitworks__p--muted">
-              Reschedule or cancel through your Square confirmation message.
-            </p>
-          </details>
-
-          <details class="howitworks__faq">
-            <summary>What’s the reschedule/cancel window?</summary>
-            <p class="howitworks__p howitworks__p--muted">
-              Please reschedule/cancel at least 3 hours prior to the beginning of your scheduled appointment.
-            </p>
-          </details>
-
-          <details class="howitworks__faq">
-            <summary>How does the ${{ site.deposit_amt }} deposit work?</summary>
-            <p class="howitworks__p howitworks__p--muted">
-              The deposit is refundable as long as you reschedule/cancel at least 3 hours prior to the beginning of your scheduled appointment.
-            </p>
-          </details>
+          <a class="howitworks__faqs"
+            href="{{ '/policies-faqs/' | relative_url }}"
+            target="_blank"
+            rel="noopener">
+            Questions? See FAQs <span aria-hidden="true">→</span>
+          </a>
         </div>
       </li>
 

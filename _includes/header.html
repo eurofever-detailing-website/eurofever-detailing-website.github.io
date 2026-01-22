@@ -2,11 +2,12 @@
 <header class="site-header site-header--custom" role="banner">
   <div class="site-header__inner">
     <a class="site-title site-title--stack" rel="author" href="{{ "/" | relative_url }}">
-      <span>{{ site.title }}</span>
+      {{ site.title }}
     </a>
 
     <nav class="site-nav site-nav--custom" aria-label="Primary navigation">
       <div class="site-nav__links">
+        <a class="page-link" href="{{ '/' | relative_url }}">HOME</a>
         {%- for path in site.header_pages -%}
           {%- assign my_page = site.html_pages | where: "path", path | first -%}
           {%- if my_page.title -%}
@@ -26,51 +27,3 @@
     </button>
   </div>
 </header> 
-
-<!-- FIXME add in drop down menu for services -->
-<!-- <header class="site-header site-header--custom" role="banner">
-  <div class="site-header__inner">
-    <a class="site-title site-title--stack" rel="author" href="{{ "/" | relative_url }}">
-      <span>{{ site.title }}</span>
-    </a>
-
-    <nav class="site-nav site-nav--custom" aria-label="Primary navigation">
-      <div class="site-nav__links">
-        {%- assign services_url = "/services/" | relative_url -%}
-
-        {%- for path in site.header_pages -%}
-          {%- assign my_page = site.html_pages | where: "path", path | first -%}
-          {%- if my_page.title -%}
-
-            {%- if my_page.title == "Services" or my_page.url == "/services/" -%}
-              <div class="nav-dd">
-                <a class="page-link nav-dd__trigger" href="{{ services_url }}">
-                  {{ my_page.title | upcase }}
-                </a>
-
-                <div class="nav-dd__menu" aria-label="Services submenu">
-                  <a class="page-link nav-dd__item" href="{{ services_url }}#how-it-works">HOW IT WORKS</a>
-                  <a class="page-link nav-dd__item" href="{{ services_url }}#services">SERVICES</a>
-                  <a class="page-link nav-dd__item" href="{{ services_url }}#add-ons">ADD-ONS</a>
-                  <a class="page-link nav-dd__item" href="{{ site.booking_link }}" target="_blank" rel="noopener">BOOK NOW →</a>
-                </div>
-              </div>
-            {%- else -%}
-              <a class="page-link" href="{{ my_page.url | relative_url }}">{{ my_page.title | upcase }}</a>
-            {%- endif -%}
-
-          {%- endif -%}
-        {%- endfor -%}
-      </div>
-    </nav>
-
-    <button class="nav-toggle" type="button"
-      aria-label="Open menu"
-      aria-controls="mobile-menu"
-      aria-expanded="false">
-      <span class="nav-toggle__bar"></span>
-      <span class="nav-toggle__bar"></span>
-      <span class="nav-toggle__bar"></span>
-    </button>
-  </div>
-</header> -->

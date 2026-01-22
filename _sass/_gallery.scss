@@ -1,0 +1,125 @@
+.post-gallery {
+  --gallery-ink: #141414;
+  --gallery-muted: rgb(114, 114, 114);
+  --gallery-line: var(--color-anthracite);
+  --gallery-card: #ffffff;
+  --gallery-shadow: 0 22px 40px rgba(0, 0, 0, 0.02);
+  background: #ffffff;
+  color: var(--gallery-ink);
+}
+
+.post-gallery__surface {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 25px;
+}
+
+.post-gallery__intro {
+  display: grid;
+  gap: 18px;
+  justify-items: center;
+  text-align: center;
+  margin-top: clamp(56px, 6vw, 64px);
+  margin-bottom: clamp(28px, 6vw, 56px);
+}
+
+.post-gallery__title {
+  margin: 0;
+  font-weight: 800;
+  letter-spacing: -3%;
+}
+
+.post-gallery__filter-panel {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 14px;
+  width: min(720px, 100%);
+}
+
+.post-gallery__filter-field {
+  display: grid;
+  gap: 6px;
+  font-size: 0.85rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gallery-muted);
+}
+
+.post-gallery__select {
+  border-radius: 999px;
+  border: 2px solid var(--gallery-line);
+  background: #ffffff;
+  color: var(--gallery-ink);
+  padding: 8px 18px;
+  font-size: 0.85rem;
+  font-weight: 400;
+  letter-spacing: -3%;
+  font-family: var(--font--body);
+  text-transform: lowercase;
+  box-shadow: 0 6px 12px rgba(89, 103, 123, 0.5);
+  cursor: pointer;
+}
+
+.post-gallery__empty {
+  font-size: 1rem;
+  margin: 24px 0 0;
+  color: var(--gallery-muted);
+}
+
+.post-gallery__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: clamp(18px, 3vw, 30px);
+}
+
+.post-tile {
+  display: grid;
+  gap: 10px;
+}
+
+.post-tile__link {
+  color: inherit;
+  text-decoration: none;
+  display: grid;
+  gap: 12px;
+}
+
+.post-tile__media {
+  background: var(--gallery-card);
+  border-radius: 40px;
+  overflow: hidden;
+  box-shadow: var(--gallery-shadow);
+  aspect-ratio: 1 / 1;
+}
+
+.post-tile__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.post-tile__subtitle {
+  margin: -3px 0 0 12px;
+  font-size: 1rem;
+  font-style: italic;
+  color: var(--gallery-ink);
+  font-family: var(--font--body);
+  font-weight: 300;
+  letter-spacing: -3%;
+}
+
+.post-tile__title {
+  margin: -15px 0 0 12px;
+  font-size: 1rem;
+  font-weight: 800;
+  color: var(--gallery-ink);
+  font-family: var(--font--body);
+  text-transform: capitalize;
+  letter-spacing: -3%;
+}
+
+.post-tile__link:hover .post-tile__media img {
+  transform: scale(1.03);
+}

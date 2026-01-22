@@ -17,22 +17,6 @@
   margin-bottom: clamp(28px, 4vw, 44px);
 }
 
-.howitworks__title{
-  font-family: var(--font-brand, Inter, system-ui, sans-serif);
-  font-weight: 600;
-  font-size: 12.5px;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  margin: 0 0 10px;
-}
-
-.howitworks__subtitle{
-  font-family: var(Inter, system-ui, sans-serif);
-  margin: 6px;
-  font-weight: 300;
-  font-size: 18px;
-}
-
 .howitworks__timeline{
   list-style: none;
   margin: 0;
@@ -106,24 +90,15 @@
   .howitworks__dot{ margin-left: 8px; }
 }
 
-.howitworks__h{
+.howitworks__faqs {
   margin: 0 0 6px;
-  font-family: var(Inter, system-ui, sans-serif);
+  font-family: var(--font-body);
   font-weight: 700;
-  font-size: 18px;
+  font-size: 20px;
 }
 
-// paragraph text
-.howitworks__p,
-.howitworks__lead,
-.howitworks__meta,
-.howitworks__meta-title,
-.howitworks__faq summary{
-  margin: 0 0 10px;
-  font-family: var(Inter, system-ui, sans-serif);
-  line-height: 1.55;
-  font-size: 14px;
-  color: var(--color-carbon);
+.howitworks__p {
+  font-weight: 300;
 }
 
 /* Book CTA button */
@@ -141,7 +116,7 @@
 
   color: #fff;
   font-weight: 700;
-  font-size: 18px;
+  font-size: 20px;
 
   transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
@@ -157,30 +132,4 @@
     width: 100%;
     justify-content: center;
   }
-}
-
-
-/* FAQ links */
-.howitworks__faq a{
-  color: inherit;
-  text-decoration: underline;
-  text-underline-offset: 3px;
-}
-.howitworks__faq a:hover{ opacity: 0.7; }
-
-/* FAQ accordions */
-.howitworks__faq{
-  margin-top: 12px;
-  padding: 12px 14px;
-  background: rgb(223, 223, 223);
-  border-radius: 14px;
-}
-
-.howitworks__faq summary{
-  cursor: pointer;
-  font-weight: 700;
-}
-
-.howitworks__p--muted{
-  color: rgba(0,0,0,0.8);
 }
