@@ -54,7 +54,9 @@
           {% endcase %}
           {% if post.cover %}
             {% assign raw_cover = post.cover %}
-            {% if raw_cover contains "/" %}
+            {% if raw_cover contains "://" %}
+              {% assign cover_path = raw_cover %}
+            {% elsif raw_cover | slice: 0, 1 == "/" %}
               {% assign cover_path = raw_cover %}
             {% else %}
               {% assign cover_path = "/assets/blog/" | append: post_file | append: "/" | append: raw_cover %}
@@ -66,7 +68,11 @@
             <a class="post-tile__link" href="{{ post.url | relative_url }}">
               {% if cover_path %}
                 <div class="post-tile__media">
-                  <img src="{{ cover_path | relative_url }}" alt="{{ post.title | escape }}">
+                  {% if cover_path contains "://" %}
+                    <img src="{{ cover_path }}" alt="{{ post.title | escape }}">
+                  {% else %}
+                    <img src="{{ cover_path | relative_url }}" alt="{{ post.title | escape }}">
+                  {% endif %}
                 </div>
               {% endif %}
               {% if tile_subtitle != "" %}
