@@ -22,7 +22,7 @@
         <label class="post-gallery__filter-field" for="gallery-filter-brand">
           brand
           <select id="gallery-filter-brand" class="post-gallery__select">
-            <option value="">all brands</option>
+            <option value="">All brands</option>
             {% assign brands = site.posts | map: "brand" | uniq | sort %}
             {% for brand in brands %}
               {% if brand %}
