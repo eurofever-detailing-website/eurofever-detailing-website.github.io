@@ -6,7 +6,7 @@ description: >-
   From daily drivers to enthusiast-owned cars, every service is designed with transparency, 
   consistency, and attention to detail.
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
+url: "eurofever-detailing-website.github.io"
 instagram_username: eurofeverdetailing
 youtube_username: eurofeverdetail
 facebook_link: https://www.facebook.com/people/EuroFever-Detailing/61586192799708/
