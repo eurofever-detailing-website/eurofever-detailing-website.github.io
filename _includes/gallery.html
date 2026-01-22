@@ -13,10 +13,10 @@
         <label class="post-gallery__filter-field" for="gallery-filter-package">
           detailing package
           <select id="gallery-filter-package" class="post-gallery__select">
-            <option value="">all packages</option>
-            <option value="full detail">full detail</option>
-            <option value="exterior only">exterior only</option>
-            <option value="interior only">interior only</option>
+            <option value="">All packages</option>
+            <option value="full detail">Full detail</option>
+            <option value="exterior only">Exterior only</option>
+            <option value="interior only">Interior only</option>
           </select>
         </label>
         <label class="post-gallery__filter-field" for="gallery-filter-brand">
@@ -26,7 +26,7 @@
             {% assign brands = site.posts | map: "brand" | uniq | sort %}
             {% for brand in brands %}
               {% if brand %}
-                <option value="{{ brand | downcase | strip }}">{{ brand }}</option>
+                <option value="{{ brand | upcase | strip }}">{{ brand }}</option>
               {% endif %}
             {% endfor %}
           </select>
