@@ -88,7 +88,8 @@ body.landing.landing--show-header .site-header {
 
 /* Landing page (when visible) */
 body.landing.landing--show-header .site-header__inner {
-  padding: 52px 64px;
+  padding: clamp(18px, 3vw, 34px) clamp(16px, 4.5vw, 56px);
+  gap: clamp(14px, 2vw, 28px);
 }
 
 body:not(.landing) .site-header {
