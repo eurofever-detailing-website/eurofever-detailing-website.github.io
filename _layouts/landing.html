@@ -4,14 +4,6 @@ layout: null
 
 <!doctype html>
 <html lang="{{ page.lang | default: site.lang | default: 'en' }}">
-    <!-- Site palette variables -->
-    <style>
-      :root{
-        --color-carbon: {{ site.palette.carbon }};
-        --color-anthracite: {{ site.palette.anthracite }};
-      }
-    </style>
-
   <head>
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-594EPWXZYK"></script>
@@ -21,9 +13,24 @@ layout: null
       gtag('js', new Date());
       gtag('config', 'G-594EPWXZYK');
     </script>
+
+    <meta property="og:image" content="{{ '/assets/media/services-intro-donnie.JPG' | relative_url }}" />
+
     {%- include head.html -%}
+    
+    <!-- Stylesheets -->
     <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+    
+    <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,100..900&display=swap" rel="stylesheet">
+
+    <!-- Site palette variables -->
+    <style>
+      :root{
+        --color-carbon: {{ site.palette.carbon }};
+        --color-anthracite: {{ site.palette.anthracite }};
+      }
+    </style>
   </head>
 
   <body class="landing">
