@@ -125,12 +125,12 @@ packages:
 vehicle_sizes:
   - key: small
     label: Small
-    description: Coupe · Sedan
+    description: Coupe • Sedan
 
   - key: mid
     label: Mid-Size
-    description: Wagon · 2-Row SUV
+    description: Wagon • 2-Row SUV
 
   - key: large
     label: Large
-    description: 3-Row SUV · Truck
+    description: 3-Row SUV • Truck
