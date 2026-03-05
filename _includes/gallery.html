@@ -64,7 +64,7 @@
           {% else %}
             {% assign cover_path = post.image | default: post.thumbnail | default: post.hero %}
           {% endif %}
-          <article class="post-tile" role="listitem" data-title="{{ tile_key }}" data-brand="{{ post.brand | downcase | strip }}">
+          <article class="post-tile" role="listitem" data-title="{{ tile_key }}" data-brand="{{ post.brand | upcase | strip }}">
             <a class="post-tile__link" href="{{ post.url | relative_url }}">
               {% if cover_path %}
                 <div class="post-tile__media">
