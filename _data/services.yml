@@ -90,9 +90,9 @@ packages:
     name: "&quotCars & Coffee&quot"
     focus: Full Detail
     pricing:
-      small: 290
-      mid: 370
-      large: 430
+      small: 320
+      mid: 400
+      large: 450
     duration:
       small: 4 hr 
       mid: 5 hr
@@ -102,9 +102,9 @@ packages:
     name: "&quotTrack-ready&quot"
     focus: Exterior Only
     pricing:
-      small: 120
-      mid: 140
-      large: 170
+      small: 150
+      mid: 170
+      large: 190
     duration:
       small: 2 hr
       mid: 2.5 hr
